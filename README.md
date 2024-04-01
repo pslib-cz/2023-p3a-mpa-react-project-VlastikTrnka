@@ -17,7 +17,7 @@
 ## Odkazy pro vývoj
 
 Zde budou živé linky na:
-- figma návrh stránek aplikace
+- [figma](https://www.figma.com/file/AcLgo8w20LHXVMwFNlaEVz/NHLDashboard?type=design&node-id=0%3A1&mode=design&t=hUVxykiLHyUH9nps-1) 
 - odkaz na gh-pages projektu
 - odkaz do repozitáře projektu, pokud pracuji v teamu a zde vývoj neprobíhá
 

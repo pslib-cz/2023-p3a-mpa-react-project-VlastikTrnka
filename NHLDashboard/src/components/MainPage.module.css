@@ -1,0 +1,41 @@
+.homePage {
+    background-image: url('path-to-your-background-image.jpg'); /* Nahraďte cestu k vašemu pozadí */
+    background-size: cover;
+    height: 100vh; /* Přizpůsobte podle potřeby */
+    color: white;
+    text-align: center;
+  }
+  
+  .homeHeader {
+    font-size: 3em; /* Přizpůsobte velikost textu podle potřeby */
+    margin-top: 50px; /* Přizpůsobte podle potřeby */
+  }
+  
+  .dashboardLinks {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px; /* Přizpůsobte podle potřeby */
+  }
+  
+  .dashboardLink {
+    background: rgba(255, 255, 255, 0.2); /* průhledné bílé pozadí */
+    border: 2px solid white;
+    margin: 0 20px;
+    padding: 20px;
+    width: 200px; /* Přizpůsobte podle potřeby */
+    height: 150px; /* Přizpůsobte podle potřeby */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dashboardLink span {
+    display: block;
+    text-transform: uppercase;
+  }
+  
+  .dashboardLink.build-own:hover, .dashboard-link.nhl-dashboard:hover {
+    background: rgba(255, 255, 255, 0.5); /* Přidá efekt při najetí myši */
+    cursor: pointer;
+  }
+  

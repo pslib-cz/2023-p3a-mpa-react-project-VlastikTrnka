@@ -2,29 +2,17 @@
 
 ## Téma
 
-### Task Manager
-#### Zobrazení Úkolů
-**1. Seznam úkolů:** Na hlavní obrazovce by byl zobrazen seznam úkolů, které uživatel vytvořil. Každý úkol by měl základní informace jako název, popis, priorita, termín atd.
+### NHL Dashboard
+#### Statistiky týmů
+**Podrobné informace jednotlivých týmů:** Statistiky jednotlivých týmů, body, výhry, prohry, střely atd.
 
-**2. Kategorie úkolů:** Uživatel by mohl kategorizovat své úkoly do různých kategorií, což by mu umožnilo lépe je organizovat.
+#### Statistiky hráčů
+**Podrobné informace o hráčích:** Statistiky jednotlivých hráčů, body, goly, asistence atd.
+#### Tabulky
+**Aktuální pořadí týmů:** Podrobné informace o tom jak si týmy vedou v momentální sezoně.
 
-**3. Filtrování a Řazení:** Uživatel by měl možnost filtrovat a řadit své úkoly podle různých kritérií, jako je priorita, termín splnění, stav atd.
-
-#### Drag and Drop Funkcionalita
-**1. Přesun úkolů:** Uživatel by měl možnost jednoduše přesouvat úkoly táhnutím a přetažením mezi různými kategoriemi nebo upravovat jejich pořadí.
-
-**2. Uspořádání Úkolů:** Po přesunutí úkolu by se automaticky aktualizovala jejich pořadí a zobrazení v rámci kategorie.
-
-**3. Visuální Indikace:** Během přetahování úkolu by měl uživatel vidět vizuální indikace, kam se úkol bude umístit po puštění, aby bylo jasné, kam bude umístěn.
-
-#### Další Funkcionality
-**1. Detaily Úkolů:** Po kliknutí na konkrétní úkol by uživatel měl možnost zobrazit podrobné informace o něm a případně provádět úpravy.
-
-**2. Vytváření a Odstraňování Úkolů:** Uživatel by měl možnost přidávat nové úkoly a odstraňovat existující.
-
-**3. Notifikace a Upozornění:** Aplikace by mohla poskytovat možnost nastavení upozornění pro blížící se termíny splnění úkolů.
-
-**4. Ukládání Dat:** Data o úkolech by měla být uložena v localStorage, aby se uživatelská data uchovala i po opuštění a opětovném otevření aplikace.
+#### Rozvrhy zápasů
+**Kdo, kde, s kým hraje:** Informace o následujících zápasech.
 
 ## Odkazy pro vývoj
 

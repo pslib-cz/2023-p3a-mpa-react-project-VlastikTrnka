@@ -1,0 +1,71 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  background-size: cover;
+  color: white;
+  padding: 20px;
+}
+
+.backButton {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.dashboardTitle {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.dashboardMenu {
+  max-width: 30vw;
+  display: flex;
+  flex-wrap: wrap;  
+  justify-content: center;
+  gap: 1em;
+}
+  
+  .menuItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.5); /* Poloprůhledný černý overlay */
+    border: 2px solid white; /* Bílý okraj */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .menuItem:hover {
+    transform: scale(1.05); /* Zvětšení při najetí myši */
+  }
+  
+  /* Styly pro ikony, pokud používáte, např. s Font Awesome */
+  .menuItem i {
+    margin-right: 10px;
+  }
+  
+  /* Odkazující text (navigační odkazy) */
+  .menuItem a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  /* Přidat třídy pro specifické sekce, pokud je potřeba další přizpůsobení */
+  

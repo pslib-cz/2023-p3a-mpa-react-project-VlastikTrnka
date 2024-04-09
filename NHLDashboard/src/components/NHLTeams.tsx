@@ -1,51 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-
-interface TeamStats {
-    teamFullName: string;
-    teamId: number;
-    gamesPlayed: number;
-    goalsFor: number;
-    goalsForPerGame: number;
-    losses: number;
-    points: number;
-    shotsForPerGame: number;
-    wins: number;
-    winsInRegulation: number;
-    winsInShootout: number;
-}
+import React, { useContext } from 'react';
+import { DashboardContext, useDashboard } from '../Provider/NHLContext'; // Make sure the path matches the location of your context file
 
 export const NHLTeams: React.FC = () => {
-    const [teamStats, setTeamStats] = useState<TeamStats[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get<TeamStats[]>('https://api.nhle.com/stats/rest/en/team/summary?sort=points&cayenneExp=seasonId=20232024%20and%20gameTypeId=2');
-                setTeamStats(response.data);
-                setLoading(false);
-            } catch (error) {
-                if (axios.isAxiosError(error)) {
-                    setError('An error occurred while fetching the data.');
-                } else {
-                    setError('An unexpected error occurred.');
-                }
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, []);
+    const { data, loading, error } = useDashboard();
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
 
+    // Make sure to access the `data` property within `data.teams`
     return (
         <div>
             <h1>NHL Team Stats</h1>
-            {teamStats.map((team) => (
+            {data.teams.data.map((team) => ( // Access the nested `data` property
                 <div key={team.teamId}>
                     <h2>{team.teamFullName}</h2>
                     <p>Games Played: {team.gamesPlayed}</p>

@@ -1,6 +1,17 @@
 import React, { createContext, useState, useEffect, useContext, PropsWithChildren } from 'react';
 import axios from 'axios';
 
+interface TeamAbbreviation {
+  id: number;
+  triCode: string;
+}
+
+interface Roster {
+  forwards: PlayerStats[];
+  defensemen: PlayerStats[];
+  goalies: PlayerStats[];
+}
+
 interface ContextProps {
   data: AllData;
   loading: boolean;
@@ -10,6 +21,8 @@ interface ContextProps {
 
 interface AllData {
     teams: TeamStats;
+    teamAbbreviations: TeamAbbreviation[];
+    rosters: { [key: string]: Roster };
     players: PlayerStats[];
     standings: TeamStanding;
     schedule: ScheduleData;
@@ -125,7 +138,9 @@ interface TeamInfo {
 export const DashboardContext = createContext<ContextProps>({
     data: {
         teams: { data: [] },
+        teamAbbreviations: [],
         players: [],
+        rosters: {},
         standings: { data: []},
         schedule: { nextStartDate: '', previousStartDate: '', gameWeek: [] }
     },
@@ -133,12 +148,13 @@ export const DashboardContext = createContext<ContextProps>({
     error: null,
     fetchData: () => {},
   });
-  
-  // Komponenta poskytovatele
+
   export const DashboardProvider: React.FC<PropsWithChildren<any>> = ({ children }) => {
     const [data, setData] = useState<AllData>({
         teams: { data: [] },
+        teamAbbreviations: [],
         players: [],
+        rosters: {},
         standings: { data: []},
         schedule: { nextStartDate: '', previousStartDate: '', gameWeek: [] }
     });
@@ -153,6 +169,26 @@ export const DashboardContext = createContext<ContextProps>({
         
         const teamsResponse = await axios.get<{data: Team[]}>(`${proxyUrl}https://api.nhle.com/stats/rest/en/team/summary?sort=points&cayenneExp=seasonId=20232024%20and%20gameTypeId=2`);
         
+        const teamAbbrevResponse = await axios.get<{data: TeamAbbreviation[]}>(`${proxyUrl}https://api.nhle.com/stats/rest/en/team`);
+
+        const teamAbbreviationsMap: Record<string, string> = {};
+        teamAbbrevResponse.data.data.forEach(team => {
+          teamAbbreviationsMap[team.id.toString()] = team.triCode;
+        });
+
+        // Získání soupisek pro všechna ID týmů
+        const rosters: Record<string, Roster> = {};
+        await Promise.all(
+          teamAbbrevResponse.data.data.map(async team => {
+            try {
+              const rosterResponse = await axios.get<Roster>(`${proxyUrl}https://api-web.nhle.com/v1/roster/${team.triCode}/20232024`);
+              rosters[team.triCode] = rosterResponse.data;
+            } catch (error) {
+              console.error(`Failed to fetch roster for team ${team.triCode}:`, error);
+            }
+          })
+        );
+
         const playersResponse = await axios.get<PlayerStats[]>(`${proxyUrl}https://api-web.nhle.com/v1/roster/TOR/20232024`);
         
         const standingsResponse = await axios.get<{wildCardIndicator: boolean, standings: Standing[]}>(`${proxyUrl}https://api-web.nhle.com/v1/standings/now`);
@@ -161,6 +197,8 @@ export const DashboardContext = createContext<ContextProps>({
   
         setData({
             teams: teamsResponse.data,
+            rosters: rosters,
+            teamAbbreviations: teamAbbrevResponse.data.data,
             players: playersResponse.data,
             standings: { data: standingsResponse.data.standings },
             schedule: scheduleResponse.data

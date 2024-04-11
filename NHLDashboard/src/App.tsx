@@ -27,8 +27,7 @@ const App: React.FC = () => {
         <Route path="/game-information" element={<h2>Informace o hře</h2>} />
         <Route path="/standings" element={<Standings />} />
         <Route path="/league-schedule" element={<Schedule />} />
-        <Route path="/nhl-teams/:teamId/roster" element={<Roster />} />
-
+        <Route path="/roster/:triCode" element={<Roster />} />
       </Routes>
     </Router>
   );

@@ -15,6 +15,7 @@ const TeamDetails: React.FC = () => {
 
   return (
     <div>
+        <h1>{teamId}</h1>
         <button onClick={() => navigate('/nhl-teams')}>Go Back</button>
         <h2>{team.teamFullName}</h2>
         <p>Games Played: {team.gamesPlayed}</p>

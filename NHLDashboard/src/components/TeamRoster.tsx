@@ -1,25 +1,36 @@
 // TeamRoster.tsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDashboard } from '../Provider/NHLContext';
 
 interface TeamProps {
-    team: {
-        teamFullName: string;
-        teamId: number;
-    };
+  team: {
+    teamFullName: string;
+    teamId: number;
+  };
 }
 
 const TeamRoster: React.FC<TeamProps> = ({ team }) => {
   const navigate = useNavigate();
+  const { data } = useDashboard();
 
   const showRoster = () => {
-    navigate(`/nhl-teams/${team.teamId}/roster`);
+    // Zde je klíčová změna: použijeme 'teamId' k nalezení odpovídající zkratky
+    const teamAbbrev = data.teamAbbreviations.find(t => t.id === team.teamId)?.triCode;
+    if (teamAbbrev) {
+      navigate(`/roster/${teamAbbrev}`);
+    } else {
+      console.error('No abbreviation found for teamId:', team.teamId);
+    }
   };
+
+  console.log(data.rosters)
+  console.log(data.teamAbbreviations)
 
   return (
     <div className="team-card" onClick={showRoster}>
       <h3>{team.teamFullName}</h3>
-      <button onClick={showRoster}>Show team roster</button>
+      <button onClick={showRoster}>Show Team Roster</button>
     </div>
   );
 };

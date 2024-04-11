@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
-import { DashboardContext } from '../Provider/NHLContext'; // Ujistěte se, že cesta k vašemu kontextu je správná
+import { DashboardContext } from '../Provider/NHLContext';
+import { useNavigate } from 'react-router-dom';
 
 export const Schedule: React.FC = () => {
   const { data, loading, error } = useContext(DashboardContext);
+  const navigate = useNavigate();
 
   const formatDate = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = {
@@ -22,10 +24,11 @@ export const Schedule: React.FC = () => {
 
   return (
     <div className="schedule-container">
+      <button className="back-button" onClick={() => navigate('/Dashboard')}>Go Back</button>
       <h1>Rozpis</h1>
       <h3>Národní hokejová liga</h3>
       <div className="games-list">
-        {data.schedule.gameWeek.map((week) => // Použijte správnou proměnnou z vašeho kontextu
+        {data.schedule.gameWeek.map((week) =>
           week.games.map((game) => (
             <div className="game-entry" key={game.id}>
               <div className="teams">

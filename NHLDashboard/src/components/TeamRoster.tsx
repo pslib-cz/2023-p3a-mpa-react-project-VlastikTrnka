@@ -1,36 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Player, { PlayerProps } from './Player';
+// TeamRoster.tsx
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-interface TeamRosterProps {
-  forwards: PlayerProps['player'][];
+interface TeamProps {
+    team: {
+        teamFullName: string;
+        teamId: number;
+    };
 }
 
-export const TeamRoster: React.FC = () => {
-  const [forwards, setForwards] = useState<TeamRosterProps['forwards']>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+const TeamRoster: React.FC<TeamProps> = ({ team }) => {
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    axios.get<{ forwards: TeamRosterProps['forwards'] }>('https://api-web.nhle.com/v1/roster/TOR/current')
-      .then(response => {
-        setForwards(response.data.forwards);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error("Error fetching data: ", err);
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error loading data: {error}</div>;
+  const showRoster = () => {
+    navigate(`/nhl-teams/${team.teamId}/roster`);
+  };
 
   return (
-    <div className="team-roster">
-      <h2>Forwards Roster</h2>
-      {forwards.map(player => <Player key={player.id} player={player} />)}
+    <div className="team-card" onClick={showRoster}>
+      <h3>{team.teamFullName}</h3>
+      <button onClick={showRoster}>Show team roster</button>
     </div>
   );
 };

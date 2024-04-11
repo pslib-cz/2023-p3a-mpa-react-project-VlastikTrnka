@@ -1,7 +1,6 @@
 import React, { createContext, useState, useEffect, useContext, PropsWithChildren } from 'react';
 import axios from 'axios';
 
-// Definice rozhraní pro váš kontext
 interface ContextProps {
   data: AllData;
   loading: boolean;
@@ -78,7 +77,6 @@ interface Standing {
     teamLogo: string;
 }
 
-  
 interface ScheduleData {
     nextStartDate: string;
     previousStartDate: string;
@@ -86,33 +84,33 @@ interface ScheduleData {
 }
 
 interface GameWeek {
-    date: string;
-    dayAbbrev: string;
-    numberOfGames: number;
-    games: Game[];
+  date: string;
+  dayAbbrev: string;
+  numberOfGames: number;
+  games: Game[];
 }
 
 interface Game {
-    id: number;
-    season: number;
-    gameType: number;
-    venue: { default: string };
-    neutralSite: boolean;
-    startTimeUTC: string;
-    easternUTCOffset: string;
-    venueUTCOffset: string;
-    venueTimezone: string;
-    gameState: string;
-    gameScheduleState: string;
-    tvBroadcasts: Array<{
-        id: number;
-        market: string;
-        countryCode: string;
-        network: string;
-        sequenceNumber: number;
-    }>;
-    awayTeam: TeamInfo;
-    homeTeam: TeamInfo;
+  id: number;
+  season: number;
+  gameType: number;
+  venue: { default: string };
+  neutralSite: boolean;
+  startTimeUTC: string;
+  easternUTCOffset: string;
+  venueUTCOffset: string;
+  venueTimezone: string;
+  gameState: string;
+  gameScheduleState: string;
+  tvBroadcasts: Array<{
+      id: number;
+      market: string;
+      countryCode: string;
+      network: string;
+      sequenceNumber: number;
+  }>;
+  awayTeam: TeamInfo;
+  homeTeam: TeamInfo;
 }
 
 interface TeamInfo {
@@ -152,13 +150,13 @@ export const DashboardContext = createContext<ContextProps>({
         setLoading(true);
   
         const proxyUrl = 'http://localhost:8080/';
-        // Získání dat týmů
+        
         const teamsResponse = await axios.get<{data: Team[]}>(`${proxyUrl}https://api.nhle.com/stats/rest/en/team/summary?sort=points&cayenneExp=seasonId=20232024%20and%20gameTypeId=2`);
-        // Získání statistik hráčů (Příklad pro tým TOR, pokud potřebujete pro všechny týmy, musíte toto upravit)
+        
         const playersResponse = await axios.get<PlayerStats[]>(`${proxyUrl}https://api-web.nhle.com/v1/roster/TOR/20232024`);
-        // Získání tabulky
+        
         const standingsResponse = await axios.get<{wildCardIndicator: boolean, standings: Standing[]}>(`${proxyUrl}https://api-web.nhle.com/v1/standings/now`);
-        // Získání rozpisu
+        
         const scheduleResponse = await axios.get<ScheduleData>(`${proxyUrl}https://api-web.nhle.com/v1/schedule/now`);
   
         setData({

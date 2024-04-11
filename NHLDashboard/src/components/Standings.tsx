@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDashboard } from '../Provider/NHLContext';
 
 export const Standings: React.FC = () => {
     const { data: { standings }, loading, error } = useDashboard();
+    const navigate = useNavigate();
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
@@ -10,7 +12,7 @@ export const Standings: React.FC = () => {
 
     return (
         <div className="standings-container">
-          <button className="back-button">Go Back</button>
+          <button className="back-button" onClick={() => navigate('/Dashboard')}>Go Back</button>
           <h1 className="title">NHL Team Standings</h1>
           <div className="teams-list">
             {standings.data.map((team, index) => (

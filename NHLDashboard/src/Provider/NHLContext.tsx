@@ -23,7 +23,7 @@ interface AllData {
     teams: TeamStats;
     teamAbbreviations: TeamAbbreviation[];
     rosters: { [key: string]: Roster };
-    players: PlayerStats[];
+    //players: PlayerStats[];
     standings: TeamStanding;
     schedule: ScheduleData;
 }
@@ -139,7 +139,7 @@ export const DashboardContext = createContext<ContextProps>({
     data: {
         teams: { data: [] },
         teamAbbreviations: [],
-        players: [],
+        //players: [],
         rosters: {},
         standings: { data: []},
         schedule: { nextStartDate: '', previousStartDate: '', gameWeek: [] }
@@ -153,7 +153,7 @@ export const DashboardContext = createContext<ContextProps>({
     const [data, setData] = useState<AllData>({
         teams: { data: [] },
         teamAbbreviations: [],
-        players: [],
+        //players: [],
         rosters: {},
         standings: { data: []},
         schedule: { nextStartDate: '', previousStartDate: '', gameWeek: [] }
@@ -189,7 +189,7 @@ export const DashboardContext = createContext<ContextProps>({
           })
         );
 
-        const playersResponse = await axios.get<PlayerStats[]>(`${proxyUrl}https://api-web.nhle.com/v1/roster/TOR/20232024`);
+        //const playersResponse = await axios.get<PlayerStats[]>(`${proxyUrl}https://api-web.nhle.com/v1/roster/TOR/20232024`);
         
         const standingsResponse = await axios.get<{wildCardIndicator: boolean, standings: Standing[]}>(`${proxyUrl}https://api-web.nhle.com/v1/standings/now`);
         
@@ -199,7 +199,7 @@ export const DashboardContext = createContext<ContextProps>({
             teams: teamsResponse.data,
             rosters: rosters,
             teamAbbreviations: teamAbbrevResponse.data.data,
-            players: playersResponse.data,
+            //players: playersResponse.data,
             standings: { data: standingsResponse.data.standings },
             schedule: scheduleResponse.data
         });

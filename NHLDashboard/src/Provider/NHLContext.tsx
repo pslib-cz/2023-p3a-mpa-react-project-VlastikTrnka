@@ -6,10 +6,63 @@ interface TeamAbbreviation {
   triCode: string;
 }
 
-interface Roster {
+export interface Roster {
   forwards: PlayerStats[];
   defensemen: PlayerStats[];
   goalies: PlayerStats[];
+}
+
+interface SkaterLeadersStats {
+  id: number;
+  firstName: {
+    default: string;
+  };
+  lastName: {
+    default: string;
+  };
+  sweaterNumber: number;
+  headshot: string;
+  teamAbbrev: string;
+  teamName: {
+    default: string;
+  },
+  teamLogo: string;
+  position: string;
+  value: number;
+}
+
+interface GoalieLeadersStats {
+  id: number;
+  firstName: {
+    default: string;
+  };
+  lastName: {
+    default: string;
+  };
+  sweaterNumber: number;
+  headshot: string;
+  teamAbbrev: string;
+  teamName: {
+    default: string;
+  },
+  teamLogo: string;
+  value: number;
+}
+
+interface TopSkaters {
+  points: SkaterLeadersStats[];
+  assists: SkaterLeadersStats[];
+  goals: SkaterLeadersStats[];
+  toi: SkaterLeadersStats[];
+  penaltyMins: SkaterLeadersStats[];
+  faceoffLeaders: SkaterLeadersStats[];
+}
+
+interface TopGoalies {
+  savePctg: GoalieLeadersStats[];
+  shutouts: GoalieLeadersStats[];
+  wins: GoalieLeadersStats[];
+  goalsAgainstAverage: GoalieLeadersStats[];
 }
 
 interface ContextProps {
@@ -23,7 +76,8 @@ interface AllData {
     teams: TeamStats;
     teamAbbreviations: TeamAbbreviation[];
     rosters: { [key: string]: Roster };
-    //players: PlayerStats[];
+    topskaters: TopSkaters,
+    topgoalies: TopGoalies,
     standings: TeamStanding;
     schedule: ScheduleData;
 }
@@ -139,8 +193,9 @@ export const DashboardContext = createContext<ContextProps>({
     data: {
         teams: { data: [] },
         teamAbbreviations: [],
-        //players: [],
         rosters: {},
+        topgoalies: { savePctg: [], shutouts: [], wins: [], goalsAgainstAverage: []},
+        topskaters: { points: [], assists: [], goals: [], toi: [], penaltyMins: [], faceoffLeaders: []},
         standings: { data: []},
         schedule: { nextStartDate: '', previousStartDate: '', gameWeek: [] }
     },
@@ -153,8 +208,9 @@ export const DashboardContext = createContext<ContextProps>({
     const [data, setData] = useState<AllData>({
         teams: { data: [] },
         teamAbbreviations: [],
-        //players: [],
         rosters: {},
+        topgoalies: { savePctg: [], shutouts: [], wins: [], goalsAgainstAverage: []},
+        topskaters: { points: [], assists: [], goals: [], toi: [], penaltyMins: [], faceoffLeaders: []},
         standings: { data: []},
         schedule: { nextStartDate: '', previousStartDate: '', gameWeek: [] }
     });
@@ -189,7 +245,9 @@ export const DashboardContext = createContext<ContextProps>({
           })
         );
 
-        //const playersResponse = await axios.get<PlayerStats[]>(`${proxyUrl}https://api-web.nhle.com/v1/roster/TOR/20232024`);
+        const topSkatersResponse = await axios.get(`${proxyUrl}https://api-web.nhle.com/v1/skater-stats-leaders/20232024/2`);
+
+        const topGoaliesResponse = await axios.get(`${proxyUrl}https://api-web.nhle.com/v1/goalie-stats-leaders/20232024/2`);
         
         const standingsResponse = await axios.get<{wildCardIndicator: boolean, standings: Standing[]}>(`${proxyUrl}https://api-web.nhle.com/v1/standings/now`);
         
@@ -199,7 +257,8 @@ export const DashboardContext = createContext<ContextProps>({
             teams: teamsResponse.data,
             rosters: rosters,
             teamAbbreviations: teamAbbrevResponse.data.data,
-            //players: playersResponse.data,
+            topskaters: topSkatersResponse.data,
+            topgoalies: topGoaliesResponse.data,
             standings: { data: standingsResponse.data.standings },
             schedule: scheduleResponse.data
         });

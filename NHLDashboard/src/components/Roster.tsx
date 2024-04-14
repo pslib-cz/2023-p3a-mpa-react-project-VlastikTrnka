@@ -10,6 +10,10 @@ const Roster = () => {
 
   const roster = data.rosters[triCode];
 
+  const showPlayerDetails = (playerId: number) => {
+    navigate(`/player-details/${playerId}`);
+  };
+
   if (loading) return <div>Loading roster...</div>;
   if (!roster) return <div>No roster available</div>;
 
@@ -19,21 +23,23 @@ const Roster = () => {
       <h1>Roster for {triCode}</h1>
       <h2>Forwards</h2>
       {roster.forwards.map(player => (
-        <div key={player.id}>
+        <div key={player.id} onClick={() => showPlayerDetails(player.id)}>
           <p>{player.firstName.default} {player.lastName.default}</p>
-          <img className="team-logo" src={player.headshot} alt={`${player.lastName.default} logo`} />
+          <img className="team-logo" src={player.headshot} alt={`${player.lastName.default} headshot`} />
         </div>
       ))}
       <h2>Defensemen</h2>
       {roster.defensemen.map(player => (
-        <div key={player.id}>
+        <div key={player.id} onClick={() => showPlayerDetails(player.id)}>
           <p>{player.firstName.default} {player.lastName.default}</p>
+          <img className="team-logo" src={player.headshot} alt={`${player.lastName.default} headshot`} />
         </div>
       ))}
       <h2>Goalies</h2>
       {roster.goalies.map(player => (
-        <div key={player.id}>
+        <div key={player.id} onClick={() => showPlayerDetails(player.id)}>
           <p>{player.firstName.default} {player.lastName.default}</p>
+          <img className="team-logo" src={player.headshot} alt={`${player.lastName.default} headshot`} />
         </div>
       ))}
     </div>

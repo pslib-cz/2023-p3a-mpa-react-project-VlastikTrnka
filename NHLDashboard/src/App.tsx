@@ -2,13 +2,14 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import NHLTeams from './components/NHLTeams';
-import TeamDetails from './components/TeamDetails'; // Předpokládám, že komponenta už existuje
+import TeamDetails from './components/TeamDetails';
 import TeamForRoster from './components/TeamForRoster';
 import GoalieLeaders from './components/GoalieLeaders';
 import SkaterLeaders from './components/SkaterLeaders';
 import Schedule from './components/Schedule';
 import Roster from './components/Roster'
 import Standings from './components/Standings';
+import PlayerDetails from './components/PlayerDetails';
 import MainPage from './components/MainPage';
 import PlayerStats from './components/PlayerStats';
 
@@ -28,6 +29,7 @@ const App: React.FC = () => {
         <Route path="/standings" element={<Standings />} />
         <Route path="/league-schedule" element={<Schedule />} />
         <Route path="/roster/:triCode" element={<Roster />} />
+        <Route path="/player-details/:playerId" element={<PlayerDetails />} />
       </Routes>
     </Router>
   );

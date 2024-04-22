@@ -8,7 +8,6 @@
   background-color: black;
   background-size: cover;
   color: white;
-  padding: 20px;
 }
 
 .backButton {
@@ -44,28 +43,26 @@
     align-items: center;
     justify-content: center;
     height: 150px;
-    background-color: rgba(0, 0, 0, 0.5); /* Poloprůhledný černý overlay */
-    border: 2px solid white; /* Bílý okraj */
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid white;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    padding: 0 1em;
   }
   
   .menuItem:hover {
-    transform: scale(1.05); /* Zvětšení při najetí myši */
+    transform: scale(1.05);
   }
   
-  /* Styly pro ikony, pokud používáte, např. s Font Awesome */
   .menuItem i {
     margin-right: 10px;
   }
   
-  /* Odkazující text (navigační odkazy) */
   .menuItem a {
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
   }
-  
-  /* Přidat třídy pro specifické sekce, pokud je potřeba další přizpůsobení */
+
   

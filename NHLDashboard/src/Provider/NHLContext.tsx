@@ -232,7 +232,6 @@ export const DashboardContext = createContext<ContextProps>({
           teamAbbreviationsMap[team.id.toString()] = team.triCode;
         });
 
-        // Získání soupisek pro všechna ID týmů
         const rosters: Record<string, Roster> = {};
         await Promise.all(
           teamAbbrevResponse.data.data.map(async team => {

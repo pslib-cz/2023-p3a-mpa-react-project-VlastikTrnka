@@ -29,13 +29,12 @@ const GoalieLeaders = () => {
         <div>
             <button onClick={() => navigate('/player-stats')}>Go Back</button>
             <h1>Goalie Leaders</h1>
-            {/* Tlačítka pro výběr kategorie */}
+            
             <button onClick={() => handleCategoryChange('savePctg')}>Save Percentage</button>
             <button onClick={() => handleCategoryChange('shutouts')}>Shutouts</button>
             <button onClick={() => handleCategoryChange('wins')}>Wins</button>
             <button onClick={() => handleCategoryChange('goalsAgainstAverage')}>Goals Against Average</button>
 
-            {/* Zobrazení tabulky leaderů pro zvolenou kategorii */}
             <div>{renderLeadersTable(selectedCategory)}</div>
         </div>
     );

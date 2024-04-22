@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Style from './MainPage.module.css'; // Předpokládám, že máte definované styly
+import Style from './MainPage.module.css';
 
 const MainPage: React.FC = () => {
   return (
@@ -11,9 +11,6 @@ const MainPage: React.FC = () => {
       <section className={Style.dashboardLinks}>
         <Link to="/dashboard" className={`${Style.dashboardLink} ${Style.nhlDashboard}`}>
           <span>NHL Dashboard</span>
-        </Link>
-        <Link to="/creative" className={`${Style.dashboardLink} ${Style.buildOwn}`}>
-          <span>Build your own dashboard</span>
         </Link>
       </section>
     </div>

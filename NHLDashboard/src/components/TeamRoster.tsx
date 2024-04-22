@@ -1,4 +1,3 @@
-// TeamRoster.tsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDashboard } from '../Provider/NHLContext';
@@ -15,7 +14,6 @@ const TeamRoster: React.FC<TeamProps> = ({ team }) => {
   const { data } = useDashboard();
 
   const showRoster = () => {
-    // Zde je klíčová změna: použijeme 'teamId' k nalezení odpovídající zkratky
     const teamAbbrev = data.teamAbbreviations.find(t => t.id === team.teamId)?.triCode;
     if (teamAbbrev) {
       navigate(`/roster/${teamAbbrev}`);

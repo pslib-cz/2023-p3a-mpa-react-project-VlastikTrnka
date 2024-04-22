@@ -4,7 +4,7 @@ interface CreativeProps {
 
 }
 
-const Creative: React.FC<CreativeProps> = (props) => {
+const Creative: React.FC<CreativeProps> = () => {
 
     return (
         <div>

@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { DashboardContext } from '../Provider/NHLContext';
 
 export const Roster = () => {
-  const { triCode } = useParams<{ triCode: string }>();
+  const triCode = useParams<{ triCode: string }>().triCode!;
   const { data, loading } = useContext(DashboardContext);
   const navigate = useNavigate();
 

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { DashboardContext } from '../Provider/NHLContext';
 import { useNavigate } from 'react-router-dom';
 

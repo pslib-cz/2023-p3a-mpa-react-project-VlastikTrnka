@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDashboard } from '../Provider/NHLContext';
 import { useNavigate } from 'react-router-dom';
 import Team from './Team';

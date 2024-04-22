@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { DashboardContext } from '../Provider/NHLContext';
 import { Roster } from '../Provider/NHLContext';

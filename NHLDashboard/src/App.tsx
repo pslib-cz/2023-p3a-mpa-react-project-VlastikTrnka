@@ -15,7 +15,7 @@ import PlayerStats from './components/PlayerStats';
 
 const App: React.FC = () => {
   return (
-    <Router>
+    <Router basename="/2023-p3a-mpa-react-project-VlastikTrnka">
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/dashboard" element={<Dashboard />} />

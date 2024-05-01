@@ -10,14 +10,15 @@ import Schedule from './components/Schedule';
 import Roster from './components/Roster'
 import Standings from './components/Standings';
 import PlayerDetails from './components/PlayerDetails';
-import MainPage from './components/MainPage';
+import GameInfo from './components/GameInfo';
 import PlayerStats from './components/PlayerStats';
+import './App.css';
 
 const App: React.FC = () => {
   return (
     <Router basename="/2023-p3a-mpa-react-project-VlastikTrnka">
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<Dashboard />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/nhl-teams" element={<NHLTeams />} />
         <Route path="/nhl-teams/:teamId" element={<TeamDetails />} />
@@ -25,7 +26,7 @@ const App: React.FC = () => {
         <Route path="/skater-leaders" element={<SkaterLeaders />} />
         <Route path="/goalie-leaders" element={<GoalieLeaders />} />
         <Route path="/team-roster" element={<TeamForRoster />} />
-        <Route path="/game-information" element={<h2>Informace o hře</h2>} />
+        <Route path="/game-info" element={<GameInfo/>} />
         <Route path="/standings" element={<Standings />} />
         <Route path="/league-schedule" element={<Schedule />} />
         <Route path="/roster/:triCode" element={<Roster />} />

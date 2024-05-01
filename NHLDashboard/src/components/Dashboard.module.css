@@ -8,6 +8,8 @@
   background-color: black;
   background-size: cover;
   color: white;
+  margin: 0;
+  padding: 0;
 }
 
 .backButton {

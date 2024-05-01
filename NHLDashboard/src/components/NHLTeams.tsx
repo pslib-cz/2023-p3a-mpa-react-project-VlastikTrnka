@@ -1,6 +1,7 @@
-import { useDashboard } from '../Provider/NHLContext';
+
 import { useNavigate } from 'react-router-dom';
-import Team from './Team';
+import TeamCard from './Team';
+import { useDashboard } from '../Provider/NHLContext';
 
 export const NHLTeams = () => {
     const { data, loading, error } = useDashboard();
@@ -14,8 +15,12 @@ export const NHLTeams = () => {
             <button onClick={() => navigate('/Dashboard')}>Go Back</button>
             <h1>NHL Týmy</h1>
             <div className="teams-grid">
-                {data.teams.data.map((team) => (
-                    <Team key={team.teamId} team={team} />
+                {data.teams.data.map(team => (
+                    <TeamCard key={team.teamId} team={{
+                        teamFullName: team.teamFullName,
+                        teamId: team.teamId,
+                        triCode: data.teamAbbreviations.find(t => t.id === team.teamId)?.triCode || 'N/A'
+                    }} />
                 ))}
             </div>
         </div>

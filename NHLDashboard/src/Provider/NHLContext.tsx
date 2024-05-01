@@ -6,6 +6,45 @@ interface TeamAbbreviation {
   triCode: string;
 }
 
+interface GameData {
+  prevDate: string;
+  currentDate: string;
+  nextDate: string;
+  gameWeek: any[];
+  games: GameInformation[];
+  oddsPartners: any[];
+}
+
+interface GameInformation {
+  id: number;
+  season: number;
+  gameType: number;
+  gameDate: string;
+  venue: { default: string };
+  startTimeUTC: string;
+  gameState: string;
+  gameScheduleState: string;
+  awayTeam: TeamInfo2;
+  homeTeam: TeamInfo2;
+  seriesStatus: PlayOffStatus;
+  ticketsLink: string;
+}
+
+interface PlayOffStatus {
+  round: number;
+  topSeedWins: number;
+  bottomSeedWins: number;
+  gameNumberOfSeries: number;
+}
+
+interface TeamInfo2 {
+  id: number;
+  name: { default: string };
+  abbrev: string;
+  record: string;
+  logo: string;
+}
+
 export interface Roster {
   forwards: PlayerStats[];
   defensemen: PlayerStats[];
@@ -80,6 +119,7 @@ interface AllData {
     topgoalies: TopGoalies,
     standings: TeamStanding;
     schedule: ScheduleData;
+    gameData: GameData;
 }
 
 interface TeamStats {
@@ -197,7 +237,8 @@ export const DashboardContext = createContext<ContextProps>({
         topgoalies: { savePctg: [], shutouts: [], wins: [], goalsAgainstAverage: []},
         topskaters: { points: [], assists: [], goals: [], toi: [], penaltyMins: [], faceoffLeaders: []},
         standings: { data: []},
-        schedule: { nextStartDate: '', previousStartDate: '', gameWeek: [] }
+        schedule: { nextStartDate: '', previousStartDate: '', gameWeek: [] },
+        gameData: { prevDate: '', currentDate: '', nextDate: '', gameWeek: [], games: [], oddsPartners: []}
     },
     loading: true,
     error: null,
@@ -212,7 +253,8 @@ export const DashboardContext = createContext<ContextProps>({
         topgoalies: { savePctg: [], shutouts: [], wins: [], goalsAgainstAverage: []},
         topskaters: { points: [], assists: [], goals: [], toi: [], penaltyMins: [], faceoffLeaders: []},
         standings: { data: []},
-        schedule: { nextStartDate: '', previousStartDate: '', gameWeek: [] }
+        schedule: { nextStartDate: '', previousStartDate: '', gameWeek: [] },
+        gameData: { prevDate: '', currentDate: '', nextDate: '', gameWeek: [], games: [], oddsPartners: []}
     });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -226,6 +268,8 @@ export const DashboardContext = createContext<ContextProps>({
         const teamsResponse = await axios.get<{data: Team[]}>(`${proxyUrl}https://api.nhle.com/stats/rest/en/team/summary?sort=points&cayenneExp=seasonId=20232024%20and%20gameTypeId=2`);
         
         const teamAbbrevResponse = await axios.get<{data: TeamAbbreviation[]}>(`${proxyUrl}https://api.nhle.com/stats/rest/en/team`);
+
+        const gameInfoResponse = await axios.get<GameData>(`${proxyUrl}https://api-web.nhle.com/v1/score/now`);
 
         const teamAbbreviationsMap: Record<string, string> = {};
         teamAbbrevResponse.data.data.forEach(team => {
@@ -259,7 +303,8 @@ export const DashboardContext = createContext<ContextProps>({
             topskaters: topSkatersResponse.data,
             topgoalies: topGoaliesResponse.data,
             standings: { data: standingsResponse.data.standings },
-            schedule: scheduleResponse.data
+            schedule: scheduleResponse.data,
+            gameData: gameInfoResponse.data
         });
   
         setLoading(false);

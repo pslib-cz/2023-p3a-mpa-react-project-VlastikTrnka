@@ -5,9 +5,6 @@ import styles from './Dashboard.module.css';
 const Dashboard: React.FC = () => {
   return (
     <div className={styles.dashboard}>
-      <Link to="/" className={styles.backButton}>
-        &lt; Go Back
-      </Link>
       <h1 className={styles.dashboardTitle}>NHL Dashboard</h1>
       <div className={styles.dashboardMenu}>
         <Link to="/nhl-teams" className={styles.menuItem}>
@@ -16,7 +13,7 @@ const Dashboard: React.FC = () => {
         <Link to="/player-stats" className={styles.menuItem}>
           Player Stats
         </Link>
-        <Link to="/game-information" className={styles.menuItem}>
+        <Link to="/game-info" className={styles.menuItem}>
           Game Information
         </Link>
         <Link to="/standings" className={styles.menuItem}>

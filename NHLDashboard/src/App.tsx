@@ -13,6 +13,8 @@ import PlayerDetails from './components/PlayerDetails';
 import GameInfo from './components/GameInfo';
 import PlayerStats from './components/PlayerStats';
 import './App.css';
+import '../src/assets/fonts/fonts.css';
+
 
 const App: React.FC = () => {
   return (

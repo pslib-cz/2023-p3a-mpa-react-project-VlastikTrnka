@@ -5,21 +5,22 @@ import styles from './Dashboard.module.css';
 const Dashboard: React.FC = () => {
   return (
     <div className={styles.dashboard}>
-      <h1 className={styles.dashboardTitle}>NHL Dashboard</h1>
-      <div className={styles.dashboardMenu}>
-        <Link to="/nhl-teams" className={styles.menuItem}>
+      <div className={styles.dashboard__logo}>0</div>
+      <h1 className={styles.dashboard__title}>NHL DASHBOARD</h1>
+      <div className={styles.dashboard__menu}>
+        <Link to="/nhl-teams" className={styles['dashboard__menu-item']}>
           Teams Information
         </Link>
-        <Link to="/player-stats" className={styles.menuItem}>
+        <Link to="/player-stats" className={styles['dashboard__menu-item']}>
           Player Stats
         </Link>
-        <Link to="/game-info" className={styles.menuItem}>
+        <Link to="/game-info" className={styles['dashboard__menu-item']}>
           Game Information
         </Link>
-        <Link to="/standings" className={styles.menuItem}>
+        <Link to="/standings" className={styles['dashboard__menu-item']}>
           Standings
         </Link>
-        <Link to="/league-schedule" className={styles.menuItem}>
+        <Link to="/league-schedule" className={styles['dashboard__menu-item']}>
           League Schedule
         </Link>
       </div>

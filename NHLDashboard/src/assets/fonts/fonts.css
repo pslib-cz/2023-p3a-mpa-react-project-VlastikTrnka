@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'NHL Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('NHL Regular'), url('NHL.woff') format('woff');
+}

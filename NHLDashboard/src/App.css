@@ -4,3 +4,12 @@
   text-align: center;
 }
 
+body {
+  font-family: 'NHL', 'Montserrat', sans-serif;
+  background-image: url('../src/assets/images/MainBG_1080.png');
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+
+}
+

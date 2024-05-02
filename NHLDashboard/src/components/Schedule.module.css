@@ -59,6 +59,30 @@
     margin: 0;
   }
 
+  .dayButton {
+    padding: .7em 1.8em;
+    background-color: transparent;
+    margin: 0 .6em;
+    color: white;
+    border: 2px solid white;
+    border-radius: 2em;
+  }
+
+  .dayButton:hover {
+    background-color: white;
+    color: black;
+  }
+
+  .activeButton {
+    background-color: white;
+    color: black;
+  }
+
+  .activeButton:hover {
+    background-color: transparent;
+    color: white;
+  }
+
 
 @media (min-width: 900px) {
     .team__logoRight {

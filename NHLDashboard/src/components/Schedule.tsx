@@ -22,8 +22,8 @@ export const Schedule: React.FC = () => {
     setSelectedDay(day);
   };
 
-  if (loading) return <div>Načítání...</div>;
-  if (error) return <div>Chyba: {error}</div>;
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   const daysOfWeek = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
   const gamesByDay = data.schedule.gameWeek.flatMap(week => week.games);
@@ -37,7 +37,7 @@ export const Schedule: React.FC = () => {
       <h1>SCHEDULE</h1>
       <div className={styles.daysOfWeek}>
         {daysOfWeek.map(day => (
-          <button key={day} onClick={() => handleDayClick(day)} className={styles.dayButton}>
+          <button key={day} onClick={() => handleDayClick(day)} className={`${styles.dayButton} ${day === selectedDay ? styles.activeButton : ''}`}>
             {day}
           </button>
         ))}

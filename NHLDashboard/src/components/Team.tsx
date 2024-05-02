@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from './Team.module.css';
+
 
 interface Team {
     teamFullName: string;
@@ -15,10 +17,10 @@ const TeamCard: React.FC<{ team: Team }> = ({ team }) => {
   };
 
   return (
-    <div className="team-card" onClick={showDetails}>
-      <img src={`https://assets.nhle.com/logos/nhl/svg/${team.triCode}_light.svg`} alt={`Logo týmu ${team.teamFullName}`} />
-      <h3>{team.teamFullName}</h3>
-      <button onClick={showDetails}>Zobrazit detaily</button>
+    <div className={styles.TeamCard}>
+      <img className={styles.TeamCard__logo} src={`https://assets.nhle.com/logos/nhl/svg/${team.triCode}_light.svg`} alt={`Logo týmu ${team.teamFullName}`} />
+      <h2 className={styles.TeamCard__title}>{team.teamFullName}</h2>
+      <button onClick={showDetails}>Show details</button>
     </div>
   );
 };

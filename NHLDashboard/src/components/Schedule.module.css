@@ -1,0 +1,94 @@
+.gameList__game {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5em auto;
+    padding: 1.5em;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    width: 80%;
+    border: 2px solid white;
+    border-radius: .8em;
+    max-width: 80vw;
+}
+  
+  .gameList__game-teams {
+    display: flex;
+    align-items: center;
+  }
+  
+  .team__logoRight {
+    height: 60px;
+    width: auto;
+    margin-right: 0;
+  }
+
+  .team__logoLeft {
+    height: 60px;
+    width: auto;
+    margin-left: 0;
+  }
+  
+  .gameList__gameInfo {
+    text-align: center;
+    font-size: .5em;
+    width: 40vw;
+  }
+  
+  .gameList__gameInfo-time {
+    display: block;
+    margin: 0;
+  }
+
+  .gameInfo-vsBlock {
+    line-height: .3;
+    text-align: center;
+  }
+  
+  .gameInfo-vs {
+    font-size: 6em;
+    font-weight: 600;
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .gameList__gameInfo-venue {
+    display: block;
+    color: white;
+    margin: 0;
+  }
+
+
+@media (min-width: 900px) {
+    .team__logoRight {
+        height: 80px;
+        width: auto;
+        margin-right: 0;
+    }
+    
+    .team__logoLeft {
+        height: 80px;
+        width: auto;
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 1300px) {
+    .team__logoRight {
+        height: 120px;
+        width: auto;
+        margin-right: 0;
+    }
+    
+    .team__logoLeft {
+        height: 120px;
+        width: auto;
+        margin-left: 0;
+    }
+
+    .gameList__game {
+        max-width: 50vw;
+      }
+}
+  

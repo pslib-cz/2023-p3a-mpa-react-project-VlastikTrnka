@@ -40,6 +40,7 @@ h1 {
   color: white;
   margin-bottom: .2em;
   margin-top: 2em;
+  text-transform: uppercase;
 }
 
 h2 {
@@ -48,6 +49,7 @@ h2 {
   margin: .5em 0;
   color: white;
   font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
 }
 
 p {

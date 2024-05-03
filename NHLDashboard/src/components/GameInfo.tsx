@@ -1,6 +1,7 @@
 import { useDashboard } from '../Provider/NHLContext';
 import { useNavigate } from 'react-router-dom';
-
+import '../index.css';
+import styles from './GameInfo.module.css';
 
 const GameInfo = () => {
     const { data, loading, error } = useDashboard();
@@ -13,36 +14,37 @@ const GameInfo = () => {
 
 
     return (
-        <div>
-            <button onClick={() => navigate(-1)}>Go Back</button>
-            <h1>Game Information</h1>
+        <div className={styles.gameInfoWrapper}>
+            <button className='btnBack' onClick={() => navigate(-1)}>Go Back</button>
+            <h1 className={styles.gameInfoWrapper__title}>GAME INFORMATION</h1>
             {data.gameData.games.map(game => (
-                <div key={game.id} style={{ margin: '20px', padding: '20px', border: '1px solid #ccc' }}>
-                    <h2>{game.awayTeam.name.default} at {game.homeTeam.name.default}</h2>
-                    <p>Date: {game.gameDate}</p>
-                    <p>Venue: {game.venue.default}</p>
-                    {game.seriesStatus && (
-                        <>
-                            {game.seriesStatus.round && <p>PlayOff Round: {game.seriesStatus.round}</p>}
-                            {game.seriesStatus.topSeedWins !== undefined && game.seriesStatus.bottomSeedWins !== undefined && (
-                                <p>Series Status: {game.seriesStatus.topSeedWins} : {game.seriesStatus.bottomSeedWins}</p>
+                <div className={styles.wrapper__box} key={game.id}>
+                    <h2 className={styles['wrapper__card-title']}>{game.awayTeam.name.default} at {game.homeTeam.name.default}</h2>
+                    <div className={styles.wrapper__card}>
+                        <div className={styles.wrapper__cardText}>
+                            <p className={styles['wrapper__card-text']}>Date: {game.gameDate}</p>
+                            <p className={styles['wrapper__card-text']}>Venue: {game.venue.default}</p>
+                            {game.seriesStatus && (
+                                <>
+                                    {game.seriesStatus.round && <p className={styles['wrapper__card-text']}>PlayOff Round: {game.seriesStatus.round}</p>}
+                                    {game.seriesStatus.topSeedWins !== undefined && game.seriesStatus.bottomSeedWins !== undefined && (
+                                        <p className={styles['wrapper__card-text']}>Series Status: {game.seriesStatus.topSeedWins} : {game.seriesStatus.bottomSeedWins}</p>
+                                    )}
+                                    {game.seriesStatus.gameNumberOfSeries && <p className={styles['wrapper__card-text']}>Game Number: {game.seriesStatus.gameNumberOfSeries}</p>}
+                                </>
                             )}
-                            {game.seriesStatus.gameNumberOfSeries && <p>Game Number: {game.seriesStatus.gameNumberOfSeries}</p>}
-                        </>
-                    )}
-                    <p>
-                        <a href={game.ticketsLink} target="_blank" rel="noopener noreferrer">Tickets</a>
-                    </p>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <div>
-                            <h3>{game.awayTeam.name.default}</h3>
-                            <img src={game.awayTeam.logo} alt={`Logo of ${game.awayTeam.name.default}`} style={{ width: '100px' }} />
-                            <p>Record: {game.awayTeam.record}</p>
                         </div>
-                        <div>
-                            <h3>{game.homeTeam.name.default}</h3>
-                            <img src={game.homeTeam.logo} alt={`Logo of ${game.homeTeam.name.default}`} style={{ width: '100px' }} />
-                            <p>Record: {game.homeTeam.record}</p>
+                        <div className={styles.wrapper__teamCard}>
+                            <div  className={styles.teamCard__left}>
+                                <h2 className={styles['wrapper__teamCard-title']}>{game.awayTeam.name.default}</h2>
+                                <img className={styles.teamCard__logo} src={game.awayTeam.logo} alt={`Logo of ${game.awayTeam.name.default}`} />
+                                <p className={styles['wrapper__card-text']}>Record: {game.awayTeam.record}</p>
+                            </div>
+                            <div className={styles.teamCard__right}>
+                                <h2 className={styles['wrapper__teamCard-title']}>{game.homeTeam.name.default}</h2>
+                                <img className={styles.teamCard__logo} src={game.homeTeam.logo} alt={`Logo of ${game.homeTeam.name.default}`} />
+                                <p className={styles['wrapper__card-text']}>Record: {game.homeTeam.record}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

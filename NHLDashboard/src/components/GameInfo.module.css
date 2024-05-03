@@ -7,6 +7,8 @@
 
 .gameInfoWrapper__title {
     font-size: 1.5em;
+    margin-top: 4.5em;
+    margin-bottom: 1em;
 }
 
 .wrapper__card-title {
@@ -20,6 +22,7 @@
     border-radius: 0.8em;
     padding: 2em 2em;
     margin: 1em 1em;
+    width: 70vw;
 }
 
 .wrapper__cardText {
@@ -70,6 +73,10 @@
         font-size: 1.2em;
         padding-left: .4em;
     }
+
+    .wrapper__box {
+        width: 50vw;
+    }
 }
 
 
@@ -93,6 +100,10 @@
 
     .wrapper__card-text {
         font-size: 1em;
+    }
+
+    .wrapper__box {
+        width: 50vw;
     }
 }
 

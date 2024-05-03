@@ -1,42 +1,55 @@
 import { useState, useContext } from 'react';
 import { DashboardContext } from '../Provider/NHLContext';
 import { useNavigate } from 'react-router-dom';
+import styles from './Schedule.module.css';
+import stylesSkaterLeaders from './SkaterLeaders.module.css';
 
-type Category = 'points' | 'assists' | 'goals' | 'toi' | 'penaltyMins' | 'faceoffLeaders';
+type CategoryType = 'points' | 'assists' | 'goals' | 'toi' | 'penaltyMins' | 'faceoffLeaders';
+
+const categoryLabels: Record<CategoryType, string> = {
+  points: 'Points',
+  assists: 'Assists',
+  goals: 'Goals',
+  toi: 'Time on Ice',
+  penaltyMins: 'Penalty Minutes',
+  faceoffLeaders: 'Faceoff Leaders'
+};
 
 const SkaterLeaders = () => {
-    const [selectedCategory, setSelectedCategory] = useState<Category>('points');
+    const [selectedCategory, setSelectedCategory] = useState<CategoryType>('points');
     const { data } = useContext(DashboardContext);
     const navigate = useNavigate();
     const skaterLeaders = data.topskaters;
 
-    const handleCategoryChange = (category: Category) => {
+    const categories: CategoryType[] = ['points', 'assists', 'goals', 'toi', 'penaltyMins', 'faceoffLeaders'];
+
+    const handleCategoryChange = (category: CategoryType) => {
         setSelectedCategory(category);
     };
 
-    const renderLeadersTable = (category: Category) => {
+    const renderLeadersTable = (category: CategoryType) => {
         const leaders = skaterLeaders[category];
         return leaders.map((leader) => (
-            <div key={leader.id}>
-                <img src={leader.headshot} alt={`${leader.firstName.default} ${leader.lastName.default}`} />
-                <p>{`${leader.firstName.default} ${leader.lastName.default} - ${leader.teamAbbrev}`}</p>
-                <p>{`${leader.value}`}</p>
+            <div className={stylesSkaterLeaders.playerCard} key={leader.id} >
+                <img className={stylesSkaterLeaders.playerCard__img} src={leader.headshot} alt={`${leader.firstName.default} ${leader.lastName.default}`} />
+                <p className={stylesSkaterLeaders.playerCard__player}>{`${leader.firstName.default} ${leader.lastName.default} - ${leader.teamAbbrev}`}</p>
+                <p className={stylesSkaterLeaders.playerCard__value}>{`${leader.value}`}</p>
             </div>
         ));
     };
 
     return (
-        <div>
-            <button onClick={() => navigate('/player-stats')}>Go Back</button>
+        <div className={stylesSkaterLeaders.SkaterLeadersWrapper}>
+            <button className='btnBack' onClick={() => navigate('/player-stats')}>Go Back</button>
             <h1>Skater Leaders</h1>
-            <button onClick={() => handleCategoryChange('points')}>Points</button>
-            <button onClick={() => handleCategoryChange('assists')}>Assists</button>
-            <button onClick={() => handleCategoryChange('goals')}>Goals</button>
-            <button onClick={() => handleCategoryChange('toi')}>Time On Ice</button>
-            <button onClick={() => handleCategoryChange('penaltyMins')}>Penalty Minutes</button>
-            <button onClick={() => handleCategoryChange('faceoffLeaders')}>Faceoff Leaders</button>
-
-            <div>{renderLeadersTable(selectedCategory)}</div>
+            <div className={styles.daysOfWeek}>
+                {categories.map(cat => (
+                    <button key={cat} onClick={() => handleCategoryChange(cat)} className={`${styles.dayButton} ${cat === selectedCategory ? styles.activeButton : ''}`}>
+                        {categoryLabels[cat]}
+                    </button>
+                ))}
+            </div>
+            <div className={stylesSkaterLeaders.playerCard__box}>{renderLeadersTable(selectedCategory)}</div>
         </div>
     );
 };

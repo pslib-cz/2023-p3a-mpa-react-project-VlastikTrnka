@@ -14,8 +14,8 @@ export const Roster = () => {
     navigate(`/player-details/${playerId}`);
   };
 
-  if (loading) return <div>Loading roster...</div>;
-  if (!roster) return <div>No roster available</div>;
+  if (loading) return <p>Loading roster...</p>;
+  if (!roster) return <p>No roster available</p>;
 
   return (
     <div>

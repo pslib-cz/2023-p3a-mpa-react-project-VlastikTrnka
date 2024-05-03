@@ -11,6 +11,12 @@
     border-radius: .8em;
     max-width: 80vw;
 }
+
+.daysOfWeek {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 3em;
+}
   
   .gameList__game-teams {
     display: flex;
@@ -60,11 +66,12 @@
   }
 
   .dayButton {
-    padding: .7em 1.8em;
+    padding: .5em 1em;
     background-color: transparent;
-    margin: 0 .6em;
+    font-size: .8em;
+    margin: .4em .5em;
     color: white;
-    border: 2px solid white;
+    border: 1px solid white;
     border-radius: 2em;
   }
 
@@ -83,19 +90,38 @@
     color: white;
   }
 
+  .noGames {
+    margin-top: 4em;
+    text-align: center;
+    font-size: 1em;
+    color: white;
+  }
+
 
 @media (min-width: 900px) {
-    .team__logoRight {
-        height: 80px;
-        width: auto;
-        margin-right: 0;
-    }
-    
-    .team__logoLeft {
-        height: 80px;
-        width: auto;
-        margin-left: 0;
-    }
+  .daysOfWeek {
+    display: flex;
+    justify-content: center;
+  }
+
+  .dayButton {
+    padding: .8em 1.6em;
+    font-size: 1em;
+    margin: .4em .5em;
+    border: 2px solid white;
+  }
+
+  .team__logoRight {
+      height: 80px;
+      width: auto;
+      margin-right: 0;
+  }
+  
+  .team__logoLeft {
+      height: 80px;
+      width: auto;
+      margin-left: 0;
+  }
 }
 
 @media (min-width: 1300px) {

@@ -1,22 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Dashboard.module.css';
+import playerStyles from './PlayerStats.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const PlayerStats: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className={styles.dashboard}>
-      <Link to="/Dashboard" className={styles.backButton}>
-        &lt; Go Back
-      </Link>
-      <h1 className={styles.dashboardTitle}>Player Stats</h1>
-      <div className={styles.dashboardMenu}>
-        <Link to="/skater-leaders" className={styles.menuItem}>
+    <div className={playerStyles.dashboard}>
+      <button onClick={() => navigate('/Dashboard')} className='btnBack'>Go Back</button>
+      <h1 className={playerStyles.dashboard__title}>Player Stats</h1>
+      <div className={playerStyles.dashboard__menu}>
+        <Link to="/skater-leaders" className={playerStyles['dashboard__menu-item']}>
           Skater Leaders
         </Link>
-        <Link to="/goalie-leaders" className={styles.menuItem}>
+        <Link to="/goalie-leaders" className={playerStyles['dashboard__menu-item']}>
           Goalie Leaders
         </Link>
-        <Link to="/team-roster" className={styles.menuItem}>
+        <Link to="/team-roster" className={playerStyles['dashboard__menu-item']}>
           Team Roster
         </Link>
       </div>

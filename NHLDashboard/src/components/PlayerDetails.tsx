@@ -81,6 +81,8 @@ const PlayerDetails = () => {
     if (contextLoading || loading) return <div className='loading'>Loading player details...</div>;
     if (!player) return <div className='loading'>Player details not available</div>;
 
+    const seasonDataAvailable = playerDetails?.careerTotals[seasonType] !== undefined;
+
     return (
         <div className={styles.playerDetailsWrapper}>
             <button className='btnBack' onClick={() => navigate(-1)}>Go Back</button>
@@ -98,44 +100,48 @@ const PlayerDetails = () => {
                     <p className={styles['playerDetailsWrapper__infoCard-stat']}>Birth Country: {player.birthCountry}</p>
                     <p className={styles['playerDetailsWrapper__infoCard-stat']}>Shoots: {player.shootsCatches}</p>
                 </div>
-                <div className={styles.playerDetailsWrapper__statsCard}>
-                    <div className={styles.playerDetailsWrapper__statsCardBtn}>
-                        <button
-                            className={`${stylesSide.dayButton} ${seasonType === 'regularSeason' ? stylesSide.activeButton : ''}`}
-                            onClick={() => setSeasonType('regularSeason')}
-                        >
-                            Regular Season
-                        </button>
-                        <button
-                            className={`${stylesSide.dayButton} ${seasonType === 'playoffs' ? stylesSide.activeButton : ''}`}
-                            onClick={() => setSeasonType('playoffs')}
-                        >
-                            Playoffs
-                        </button>
+                    <div className={styles.playerDetailsWrapper__statsCard}>
+                        <div className={styles.playerDetailsWrapper__statsCardBtn}>
+                            <button
+                                className={`${stylesSide.dayButton} ${seasonType === 'regularSeason' ? stylesSide.activeButton : ''}`}
+                                onClick={() => setSeasonType('regularSeason')}
+                            >
+                                Regular Season
+                            </button>
+                            <button
+                                className={`${stylesSide.dayButton} ${seasonType === 'playoffs' ? stylesSide.activeButton : ''}`}
+                                onClick={() => setSeasonType('playoffs')}
+                            >
+                                Playoffs
+                            </button>
+                        </div>
+                        {seasonDataAvailable ? (
+                            <div className={styles.playerDetailsWrapper__statsCardValues}>
+                                <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Games Played: {playerDetails.careerTotals[seasonType].gamesPlayed}</p>
+                                <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Goals: {playerDetails.careerTotals[seasonType].goals}</p>
+                                <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Assists: {playerDetails.careerTotals[seasonType].assists}</p>
+                                <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Points: {playerDetails.careerTotals[seasonType].points}</p>
+                                <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Power Play Goals: {playerDetails.careerTotals[seasonType].powerPlayGoals}</p>
+                                <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Power Play Points: {playerDetails.careerTotals[seasonType].powerPlayPoints}</p>
+                                <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Shorthanded Points: {playerDetails.careerTotals[seasonType].shorthandedPoints}</p>
+                                <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Game Winning Goals: {playerDetails.careerTotals[seasonType].gameWinningGoals}</p>
+                                <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Shots: {playerDetails.careerTotals[seasonType].shots}</p>
+                                <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Faceoff Winning Percentage: {
+                                    (playerDetails.careerTotals[seasonType].faceoffWinningPctg * 100).toFixed(2) + '%'
+                                }</p>
+                                <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Average Time on Ice: {
+                                    playerDetails.careerTotals[seasonType].avgToi
+                                } minutes</p>
+                            </div>
+                        ) : (
+                            <p className='loading'>Not Available</p>
+                        )}
                     </div>
-                    <div className={styles.playerDetailsWrapper__statsCardValues}>
-                        <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Games Played: {playerDetails?.careerTotals[seasonType].gamesPlayed}</p>
-                        <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Goals: {playerDetails?.careerTotals[seasonType].goals}</p>
-                        <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Assists: {playerDetails?.careerTotals[seasonType].assists}</p>
-                        <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Points: {playerDetails?.careerTotals[seasonType].points}</p>
-                        <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Power Play Goals: {playerDetails?.careerTotals[seasonType].powerPlayGoals}</p>
-                        <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Power Play Points: {playerDetails?.careerTotals[seasonType].powerPlayPoints}</p>
-                        <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Shorthanded Points: {playerDetails?.careerTotals[seasonType].shorthandedPoints}</p>
-                        <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Game Winning Goals: {playerDetails?.careerTotals[seasonType].gameWinningGoals}</p>
-                        <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Shots: {playerDetails?.careerTotals[seasonType].shots}</p>
-                        <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Faceoff Winning Percentage: {
-                        playerDetails?.careerTotals[seasonType].faceoffWinningPctg 
-                            ? (playerDetails.careerTotals[seasonType].faceoffWinningPctg * 100).toString() + '%'
-                            : 'N/A'
-                        }</p>
-                        <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Average Time on Ice: {
-                        playerDetails?.careerTotals[seasonType].avgToi || 'N/A'
-                        } minutes</p>
-                    </div>
-                </div>
             </div>
         </div>
     );
 };
 
 export default PlayerDetails;
+
+

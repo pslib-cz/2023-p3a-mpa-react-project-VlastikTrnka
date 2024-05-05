@@ -18,6 +18,7 @@ import '../src/assets/fonts/fonts.css';
 
 const App: React.FC = () => {
   return (
+
     <Router basename="/2023-p3a-mpa-react-project-VlastikTrnka">
       <Routes>
         <Route path="/" element={<Dashboard />} />

@@ -82,7 +82,7 @@ const PlayerDetails = () => {
     return (
         <div className={styles.playerDetailsWrapper}>
             <button className='btnBack' onClick={() => navigate(-1)}>Go Back</button>
-            <h2 className={styles.playerDetailsWrapper__playerName}>{player.firstName.default} {player.lastName.default}</h2>
+            <h2 className={styles.playerDetailsWrapper__playerName}>{player.firstName.default} <strong>{player.lastName.default}</strong></h2>
             <div className={styles.playerDetailsWrapper__introduceCard}>
                 <p className={styles['playerDetailsWrapper__inroduceCard-num']}>{player.sweaterNumber}</p>
                 <img className={styles['playerDetailsWrapper__inroduceCard-logo']} src={player.headshot} alt={`${player.firstName.default} ${player.lastName.default}`} />

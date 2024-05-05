@@ -1,0 +1,43 @@
+
+
+.playerDetailsWrapper__playerName {
+    margin-top: 6em;
+    font-weight: 400;
+    font-size: 1.5em;
+    margin-bottom: 2em;
+}
+
+.playerDetailsWrapper__introduceCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: .8em;
+    overflow: hidden;
+    padding: 0;
+    margin: 0 auto;
+    width: 70vw;
+}
+
+.playerDetailsWrapper__inroduceCard-num {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: .8em;
+}
+
+.playerDetailsWrapper__inroduceCard-logo {
+    width: 100%;
+    height: auto;
+}
+
+.playerDetailsWrapper__infoCard {
+    padding: 0;
+    margin: 3em auto;
+    width: 70vw;
+}
+
+.playerDetailsWrapper__infoCard-stat {
+    text-align: left;
+    font-size: 1em;
+}

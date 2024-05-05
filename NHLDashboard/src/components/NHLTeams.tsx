@@ -30,8 +30,8 @@ export const NHLTeams = () => {
         }
     }, [foundTeamId]);
 
-    if (loading) return <div>Načítání...</div>;
-    if (error) return <div>Chyba: {error}</div>;
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
 
     return (
         <div className={styles.teamWrapper}>

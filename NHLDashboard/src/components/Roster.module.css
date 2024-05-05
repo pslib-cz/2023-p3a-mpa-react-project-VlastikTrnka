@@ -1,0 +1,207 @@
+.rosterWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rosterWrapper__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    padding-bottom: 1em;
+}
+
+.rosterWrapper__playerCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    border: 1px solid white;
+    border-radius: .8em;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.4s ease-in-out;
+}
+
+.rosterWrapper__playerCard:hover {
+    transform: scale(1.02);
+}
+
+.rosterWrapper__playerCard-player {
+    font-size: .8em;
+    color: white;
+    font-weight: 700;
+    padding-top: 1.5em;
+    margin: 0;
+}
+
+.rosterWrapper__playerCard-playerNum {
+    font-size: 1em;
+    color: white;
+    padding-top: .2em;
+    padding-bottom: .6em;
+    margin: 0;
+}
+
+.rosterWrapper__playerCard-img {
+    width: 100%;
+    height: auto;
+}
+
+.rosterWrapper_titleMain {
+    font-size: 2em;
+    margin-top: .3em;
+}
+
+.rosterWrapper_title {
+    font-size: 1.1em;
+    margin-top: .2em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+}
+
+.rosterWrapper__logo {
+    width: 120px;
+    height: auto;
+    margin-top: 6em;
+}
+
+
+@media (min-width: 440px) {
+
+    .rosterWrapper__playerCard {
+        width: 25vw;
+    }
+
+    .rosterWrapper_titleMain {
+        font-size: 2.3em;
+    }
+
+    .rosterWrapper__logo {
+        width: 160px;
+    }
+}
+
+@media (min-width: 550px) {
+
+    .rosterWrapper__playerCard-player {
+        font-size: .7em;
+    }
+
+    .rosterWrapper__playerCard-player {
+        font-size: 1em;
+    }
+    
+    .rosterWrapper__playerCard-playerNum {
+        font-size: 1.2em;
+    }
+
+    .rosterWrapper__logo {
+        width: 180px;
+    }
+}
+  
+@media (min-width: 700px) {
+
+    .rosterWrapper_titleMain {
+        font-size: 3em;
+    }
+
+    .rosterWrapper__container {
+        gap: 1em;
+    }
+
+    .rosterWrapper__playerCard-player {
+        font-size: .8em;
+    }
+
+    .rosterWrapper__playerCard-player {
+        font-size: 1.2em;
+    }
+    
+    .rosterWrapper__playerCard-playerNum {
+        font-size: 1.4em;
+    }
+    .rosterWrapper__logo {
+        width: 200px;
+    }
+}
+
+  
+@media (min-width: 900px) {
+    .rosterWrapper__playerCard {
+        width: 18vw;
+        border: 2px solid white;
+    }
+
+    .rosterWrapper__container {
+        margin: 0 2em;
+    }
+
+    .rosterWrapper__playerCard-player {
+        font-size: .9em;
+    }
+
+    .rosterWrapper__playerCard-player {
+        font-size: 1.4em;
+    }
+    
+    .rosterWrapper__playerCard-playerNum {
+        font-size: 1.6em;
+    }
+    .rosterWrapper__logo {
+        width: 220px;
+    }
+}
+
+  
+@media (min-width: 1200px) {
+    .rosterWrapper_titleMain {
+        font-size: 4em;
+    }
+    .rosterWrapper__playerCard {
+        width: 16vw;
+    }
+    .rosterWrapper__container {
+        margin: 0 11em;
+    }
+    .rosterWrapper__playerCard-player {
+        font-size: 1.5em;
+    }
+    
+    .rosterWrapper__playerCard-playerNum {
+        font-size: 1.7em;
+    }
+    .rosterWrapper__logo {
+        width: 240px;
+    }
+}
+
+@media (min-width: 1550px) {
+    .rosterWrapper__playerCard {
+        width: 14vw;
+    }
+    .rosterWrapper__container {
+        margin: 0 18em;
+    }
+    .rosterWrapper__playerCard-player {
+        font-size: 1.3em;
+    }
+
+    .rosterWrapper__playerCard-player {
+        font-size: 1.6em;
+    }
+    
+    .rosterWrapper__playerCard-playerNum {
+        font-size: 1.9em;
+    }
+    .rosterWrapper__logo {
+        width: 265px;
+    }
+}

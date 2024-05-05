@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import TeamCard from './Team';
 import { useDashboard } from '../Provider/NHLContext';
 import '../index.css';
-import styles from './Team.module.css';
+import styles from '../CSSModules/Team.module.css';
 
 export const NHLTeams = () => {
     const { data, loading, error } = useDashboard();
@@ -30,8 +30,8 @@ export const NHLTeams = () => {
         }
     }, [foundTeamId]);
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
+    if (loading) return <div className='loading'>Loading...</div>;
+    if (error) return <div className='loading'>Error: {error}</div>;
 
     return (
         <div className={styles.teamWrapper}>

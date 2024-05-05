@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react';
 import { DashboardContext } from '../Provider/NHLContext';
 import { useNavigate } from 'react-router-dom';
-import styles from './Schedule.module.css';
-import stylesGoalieLeaders from './SkaterLeaders.module.css';
+import styles from '../CSSModules/Schedule.module.css';
+import stylesGoalieLeaders from '../CSSModules/SkaterLeaders.module.css';
 
 type GoalieCategory = 'savePctg' | 'shutouts' | 'wins' | 'goalsAgainstAverage';
 

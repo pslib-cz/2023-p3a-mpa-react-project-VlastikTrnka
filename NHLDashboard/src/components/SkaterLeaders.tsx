@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react';
 import { DashboardContext } from '../Provider/NHLContext';
 import { useNavigate } from 'react-router-dom';
-import styles from './Schedule.module.css';
-import stylesSkaterLeaders from './SkaterLeaders.module.css';
+import styles from '../CSSModules/Schedule.module.css';
+import stylesSkaterLeaders from '../CSSModules/SkaterLeaders.module.css';
 
 type CategoryType = 'points' | 'assists' | 'goals' | 'toi' | 'penaltyMins' | 'faceoffLeaders';
 

@@ -1,14 +1,14 @@
 import { useDashboard } from '../Provider/NHLContext';
 import { useNavigate } from 'react-router-dom';
 import '../index.css';
-import styles from './GameInfo.module.css';
+import styles from '../CSSModules/GameInfo.module.css';
 
 const GameInfo = () => {
     const { data, loading, error } = useDashboard();
     const navigate = useNavigate();
 
-    if (loading) return <div>Loading game information...</div>;
-    if (error) return <div>Error loading data: {error}</div>;
+    if (loading) return <div className='loading'>Loading game information...</div>;
+    if (error) return <div className='loading'>Error loading data: {error}</div>;
     if (data.gameData.games.length === 0) return <div>No game information available.</div>;
     console.log(data.gameData);
 

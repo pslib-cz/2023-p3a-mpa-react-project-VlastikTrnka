@@ -2,14 +2,14 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDashboard } from '../Provider/NHLContext';
 import '../index.css';
-import styles from './Standings.module.css';
+import styles from '../CSSModules/Standings.module.css';
 
 export const Standings: React.FC = () => {
     const { data: { standings }, loading, error } = useDashboard();
     const navigate = useNavigate();
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
+    if (loading) return <div className='loading'>Loading...</div>;
+    if (error) return <div className='loading'>Error: {error}</div>;
     if (!standings.data || standings.data.length === 0) return <div>Nejsou dostupná žádná data o umístění týmů.</div>;
 
     return (

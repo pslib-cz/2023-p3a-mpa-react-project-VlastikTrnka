@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import playerStyles from './PlayerStats.module.css';
+import playerStyles from '../CSSModules/PlayerStats.module.css';
 import { useNavigate } from 'react-router-dom';
 
 const PlayerStats: React.FC = () => {

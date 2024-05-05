@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './Team.module.css';
+import styles from '../CSSModules/Team.module.css';
 
 
 interface Team {

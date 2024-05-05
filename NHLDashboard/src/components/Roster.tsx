@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { DashboardContext } from '../Provider/NHLContext';
-import styles from './Roster.module.css';
+import styles from '../CSSModules/Roster.module.css';
 
 export const Roster = () => {
   const triCode = useParams<{ triCode: string }>().triCode!;
@@ -15,8 +15,8 @@ export const Roster = () => {
     navigate(`/player-details/${playerId}`);
   };
 
-  if (loading) return <p>Loading roster...</p>;
-  if (!roster) return <p>No roster available</p>;
+  if (loading) return <div className='loading'>Loading roster...</div >;
+  if (!roster) return <div className='loading'>No roster available</div >;
 
   return (
     <div className={styles.rosterWrapper}>

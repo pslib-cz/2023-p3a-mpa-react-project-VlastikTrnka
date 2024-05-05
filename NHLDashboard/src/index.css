@@ -99,6 +99,12 @@ button:hover {
   border-radius: 2em;
 }
 
+.loading {
+  font-size: 1.2em;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

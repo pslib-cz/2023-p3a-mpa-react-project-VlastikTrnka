@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { DashboardContext } from '../Provider/NHLContext';
 import '../index.css';
-import styles from './TeamDetails.module.css';
+import styles from '../CSSModules/TeamDetails.module.css';
 
 const TeamDetails: React.FC = () => {
   const { teamId } = useParams<{ teamId: string }>();
@@ -12,7 +12,7 @@ const TeamDetails: React.FC = () => {
   const team = data.teams.data.find(t => t.teamId === Number(teamId));
 
   if (!team) {
-    return <div>Team not found</div>;
+    return <div className='loading'>Team not found</div>;
   }
 
   const triCode = data.teamAbbreviations.find(t => t.id === team.teamId)?.triCode || 'N/A';

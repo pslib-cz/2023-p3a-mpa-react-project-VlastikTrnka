@@ -96,6 +96,8 @@
     .wrapper__cardText {
         text-align: left;
         font-size: 1.3em;
+        width: 35vw;
+        margin: 2em 1.5em;
     }
 
     .wrapper__card-text {
@@ -121,10 +123,10 @@
     .wrapper__card {
         display: flex;
         flex-direction: row;
-        gap: 4em;
+        gap: 1em;
     }
     .wrapper__teamCard {
-        gap: 4em;
+        gap: 1em;
         margin-bottom: 3em;
     }
     .teamCard__logo {
@@ -132,7 +134,19 @@
     }
 
     .wrapper__teamCard-title {
-        font-size: 1.4em;
+        font-size: 1.1em;
     }
 
+    .wrapper__card-text {
+        font-size: .8em;
+    }
+}
+
+@media (min-width: 1400px) {
+    .wrapper__box {
+        width: 40vw;
+    }
+    .wrapper__teamCard-title {
+        font-size: 1.2em;
+    }
 }

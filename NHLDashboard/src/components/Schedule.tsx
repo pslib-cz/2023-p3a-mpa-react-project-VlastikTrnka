@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { DashboardContext } from '../Provider/NHLContext';
 import { useNavigate } from 'react-router-dom';
 import '../index.css';
-import styles from './Schedule.module.css';
+import styles from '../CSSModules/Schedule.module.css';
 
 export const Schedule: React.FC = () => {
   const { data, loading, error } = useContext(DashboardContext);
@@ -22,8 +22,8 @@ export const Schedule: React.FC = () => {
     setSelectedDay(day);
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <div className='loading'>Loading...</div>;
+  if (error) return <div className='loading'>Error: {error}</div>;
 
   const daysOfWeek = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
   const gamesByDay = data.schedule.gameWeek.flatMap(week => week.games);

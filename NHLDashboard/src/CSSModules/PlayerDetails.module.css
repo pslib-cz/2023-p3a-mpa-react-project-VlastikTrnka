@@ -58,16 +58,6 @@
     justify-content: center;
 }
 
-.playerDetailsWrapper__statsCardBtn button {
-    padding: .9em 1.7em;
-    background-color: transparent;
-    color: white;
-    font-size: .7em;
-    border: 1px solid white;
-    border-radius: 2em;
-    margin-top: 2em;
-    cursor: pointer;
-}
 
 .playerDetailsWrapper__statsCardValues {
     margin: 1em 0;

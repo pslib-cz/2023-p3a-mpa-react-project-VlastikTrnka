@@ -265,11 +265,11 @@ export const DashboardContext = createContext<ContextProps>({
   
         const proxyUrl = 'http://localhost:8080/';
         
-        const teamsResponse = await axios.get<{data: Team[]}>(`https://api.nhle.com/stats/rest/en/team/summary?sort=points&cayenneExp=seasonId=20232024%20and%20gameTypeId=2`);
+        const teamsResponse = await axios.get<{data: Team[]}>(`${proxyUrl}https://api.nhle.com/stats/rest/en/team/summary?sort=points&cayenneExp=seasonId=20232024%20and%20gameTypeId=2`);
         
-        const teamAbbrevResponse = await axios.get<{data: TeamAbbreviation[]}>(`https://api.nhle.com/stats/rest/en/team`);
+        const teamAbbrevResponse = await axios.get<{data: TeamAbbreviation[]}>(`${proxyUrl}https://api.nhle.com/stats/rest/en/team`);
 
-        const gameInfoResponse = await axios.get<GameData>(`https://api-web.nhle.com/v1/score/now`);
+        const gameInfoResponse = await axios.get<GameData>(`${proxyUrl}https://api-web.nhle.com/v1/score/now`);
 
         const teamAbbreviationsMap: Record<string, string> = {};
         teamAbbrevResponse.data.data.forEach(team => {
@@ -280,7 +280,7 @@ export const DashboardContext = createContext<ContextProps>({
         await Promise.all(
           teamAbbrevResponse.data.data.map(async team => {
             try {
-              const rosterResponse = await axios.get<Roster>(`https://api-web.nhle.com/v1/roster/${team.triCode}/20232024`);
+              const rosterResponse = await axios.get<Roster>(`${proxyUrl}https://api-web.nhle.com/v1/roster/${team.triCode}/20232024`);
               rosters[team.triCode] = rosterResponse.data;
             } catch (error) {
               console.error(`Failed to fetch roster for team ${team.triCode}:`, error);
@@ -288,13 +288,13 @@ export const DashboardContext = createContext<ContextProps>({
           })
         );
 
-        const topSkatersResponse = await axios.get(`https://api-web.nhle.com/v1/skater-stats-leaders/20232024/2`);
+        const topSkatersResponse = await axios.get(`${proxyUrl}https://api-web.nhle.com/v1/skater-stats-leaders/20232024/2`);
 
-        const topGoaliesResponse = await axios.get(`https://api-web.nhle.com/v1/goalie-stats-leaders/20232024/2`);
+        const topGoaliesResponse = await axios.get(`${proxyUrl}https://api-web.nhle.com/v1/goalie-stats-leaders/20232024/2`);
         
-        const standingsResponse = await axios.get<{wildCardIndicator: boolean, standings: Standing[]}>(`https://api-web.nhle.com/v1/standings/now`);
+        const standingsResponse = await axios.get<{wildCardIndicator: boolean, standings: Standing[]}>(`${proxyUrl}https://api-web.nhle.com/v1/standings/now`);
         
-        const scheduleResponse = await axios.get<ScheduleData>(`https://api-web.nhle.com/v1/schedule/now`);
+        const scheduleResponse = await axios.get<ScheduleData>(`${proxyUrl}https://api-web.nhle.com/v1/schedule/now`);
   
         setData({
             teams: teamsResponse.data,

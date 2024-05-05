@@ -5,6 +5,7 @@ import { Roster } from '../Provider/NHLContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from '../CSSModules/PlayerDetails.module.css';
+import stylesSide from '../CSSModules/Schedule.module.css';
 
 
 interface PlayerAdditionalDetails {
@@ -99,8 +100,18 @@ const PlayerDetails = () => {
                 </div>
                 <div className={styles.playerDetailsWrapper__statsCard}>
                     <div className={styles.playerDetailsWrapper__statsCardBtn}>
-                        <button  onClick={() => setSeasonType('regularSeason')}>Regular Season</button>
-                        <button onClick={() => setSeasonType('playoffs')}>Playoffs</button>
+                        <button
+                            className={`${stylesSide.dayButton} ${seasonType === 'regularSeason' ? stylesSide.activeButton : ''}`}
+                            onClick={() => setSeasonType('regularSeason')}
+                        >
+                            Regular Season
+                        </button>
+                        <button
+                            className={`${stylesSide.dayButton} ${seasonType === 'playoffs' ? stylesSide.activeButton : ''}`}
+                            onClick={() => setSeasonType('playoffs')}
+                        >
+                            Playoffs
+                        </button>
                     </div>
                     <div className={styles.playerDetailsWrapper__statsCardValues}>
                         <p className={styles['playerDetailsWrapper__statsCardValues-stat']}>Games Played: {playerDetails?.careerTotals[seasonType].gamesPlayed}</p>

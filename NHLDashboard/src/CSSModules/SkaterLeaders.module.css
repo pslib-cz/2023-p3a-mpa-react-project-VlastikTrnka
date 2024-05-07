@@ -62,13 +62,39 @@
   
 @media (min-width: 700px) {
     .playerCard__box {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-direction: column;
         gap: 1.5em;
     }
 
     .playerCard {
-        width: 40vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        overflow: hidden;
+        gap: 0;
+        width: 60vw;
+    }
+
+    .playerCard__img {
+        width: 160px;
+        height: auto;
+        border-right: 2px solid grey;
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+
+    .playerCard__info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0;
+        margin-right: 1em;
+    }
+
+    .playerCard__info p {
+        margin: 0;
+        padding: 0;
     }
 }
 
@@ -76,12 +102,19 @@
 @media (min-width: 900px) {
     .playerCard__box {
         gap: 1em;
-        max-width: 65vw;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .playerCard {
-        width: 30vw;
+        width: 70vw;
+    }
+
+    .playerCard__img {
+        width: 220px;
+        height: auto;
     }
 }
 
@@ -89,25 +122,22 @@
 @media (min-width: 1200px) {
     .playerCard__box {
         gap: 1.2em;
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 60vw;
         margin: 0 auto;
     }
-
-    .playerCard {
-        width: 20vw;
+    .playerCard__img {
+        width: 260px;
+        height: auto;
     }
 }
 
 @media (min-width: 1400px) {
     .playerCard__box {
         gap: 1.2em;
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 50vw;
         margin: 0 auto;
     }
 
-    .playerCard {
-        width: 20vw;
+    .playerCard__img {
+        width: 320px;
+        height: auto;
     }
 }

@@ -32,8 +32,11 @@ const SkaterLeaders = () => {
         return leaders.map((leader) => (
             <div className={stylesSkaterLeaders.playerCard} key={leader.id} >
                 <img className={stylesSkaterLeaders.playerCard__img} src={leader.headshot} alt={`${leader.firstName.default} ${leader.lastName.default}`} />
-                <p className={stylesSkaterLeaders.playerCard__player}>{`${leader.firstName.default} ${leader.lastName.default} - ${leader.teamAbbrev}`}</p>
-                <p className={stylesSkaterLeaders.playerCard__value}>{`${leader.value}`}</p>
+                <div className={stylesSkaterLeaders.playerCard__info}>
+                    <p className={stylesSkaterLeaders['playerCard__info--player']}>{`${leader.firstName.default} ${leader.lastName.default}`}</p>
+                    <p className={stylesSkaterLeaders['playerCard__info--teamAbbrev']}>{`${leader.teamAbbrev}`}</p>
+                    <p className={stylesSkaterLeaders['playerCard__info--value']}>{`${leader.value}`}</p>
+                </div>
             </div>
         ));
     };

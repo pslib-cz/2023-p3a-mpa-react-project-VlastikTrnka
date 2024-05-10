@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { DashboardContext } from '../Provider/NHLContext';
 import { useNavigate } from 'react-router-dom';
 import styles from '../CSSModules/Schedule.module.css';
-import stylesGoalieLeaders from '../CSSModules/SkaterLeaders.module.css';
+import stylesLeaders from '../CSSModules/SkaterLeaders.module.css';
 
 type GoalieCategory = 'savePctg' | 'shutouts' | 'wins' | 'goalsAgainstAverage';
 
@@ -25,29 +25,41 @@ const GoalieLeaders = () => {
         setSelectedCategory(category);
     };
 
+    const formatValue = (value: number) => {
+        if (value % 1 !== 0) {
+            return value.toFixed(2);
+        }
+        return value;
+    };
+
     const renderLeadersTable = (category: GoalieCategory) => {
         const leaders = goalieLeaders[category];
         return leaders.map((leader) => (
-            <div className={stylesGoalieLeaders.playerCard} key={leader.id}>
-                <img className={stylesGoalieLeaders.playerCard__img} src={leader.headshot} alt={`${leader.firstName.default} ${leader.lastName.default}`} />
-                <p className={stylesGoalieLeaders.playerCard__player}>{`${leader.firstName.default} ${leader.lastName.default} - ${leader.teamAbbrev}`}</p>
-                <p className={stylesGoalieLeaders.playerCard__value}>{`Value: ${leader.value}`}</p>
+            <div className={stylesLeaders.playerCard} key={leader.id}>
+                <div className={stylesLeaders.playerCard__intro}>
+                    <img className={stylesLeaders.playerCard__img} src={leader.headshot} alt={`${leader.firstName.default} ${leader.lastName.default}`} />
+                    <p className={stylesLeaders['playerCard__info--teamAbbrev']}>{`${leader.teamAbbrev}`}</p>
+                </div>
+                <div className={stylesLeaders.playerCard__info}>
+                    <p className={stylesLeaders['playerCard__info--player']}>{`${leader.firstName.default}`} <strong>{`${leader.lastName.default}`}</strong></p>
+                    <p className={stylesLeaders['playerCard__info--value']}>{formatValue(leader.value)}</p>
+                </div>
             </div>
         ));
     };
 
     return (
-        <div className={stylesGoalieLeaders.SkaterLeadersWrapper}>
+        <div className={stylesLeaders.SkaterLeadersWrapper}>
             <button className='btnBack' onClick={() => navigate('/player-stats')}>Go Back</button>
             <h1>Goalie Leaders</h1>
             <div className={styles.daysOfWeek}>
                 {categories.map(cat => (
-                    <button key={cat} onClick={() => handleCategoryChange(cat as GoalieCategory)} className={`${styles.dayButton} ${cat === selectedCategory ? styles.activeButton : ''}`}>
+                    <button key={cat} onClick={() => handleCategoryChange(cat)} className={`${styles.dayButton} ${cat === selectedCategory ? styles.activeButton : ''}`}>
                         {categoryLabels[cat]}
                     </button>
                 ))}
             </div>
-            <div className={stylesGoalieLeaders.playerCard__box}>{renderLeadersTable(selectedCategory)}</div>
+            <div className={stylesLeaders.playerCard__box}>{renderLeadersTable(selectedCategory)}</div>
         </div>
     );
 };

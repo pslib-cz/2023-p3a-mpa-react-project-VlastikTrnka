@@ -26,15 +26,23 @@ const TeamDetails: React.FC = () => {
           <p className={styles['teamDetails__Card-text']}>2023/2024</p>
         </div>
         <div className={styles.teamDetails__Card2}>
-          <p className={styles['teamDetails__Card2-text']}><strong>Games Played:</strong> {team.gamesPlayed}</p>
-          <p className={styles['teamDetails__Card2-text']}><strong>Wins:</strong> {team.wins}</p>
-          <p className={styles['teamDetails__Card2-text']}><strong>Losses:</strong> {team.losses}</p>
-          <p className={styles['teamDetails__Card2-text']}><strong>Points:</strong> {team.points}</p>
-          <p className={styles['teamDetails__Card2-text']}><strong>Goals For:</strong> {team.goalsFor}</p>
-          <p className={styles['teamDetails__Card2-text']}><strong>Goals For Per Game:</strong> {team.goalsForPerGame.toFixed(1)}</p>
-          <p className={styles['teamDetails__Card2-text']}><strong>Shots For Per Game:</strong> {team.shotsForPerGame.toFixed(1)}</p>
-          <p className={styles['teamDetails__Card2-text']}><strong>Wins in Shootout:</strong> {team.winsInShootout}</p>
-          <p className={styles['teamDetails__Card2-text']}><strong>Wins in Regulation:</strong> {team.winsInRegulation}</p>
+          <div className={styles['Card2__Main']}>
+            <p className={styles['Card2__Main-text']}><strong className={styles['Main__textHead-mid']}>{team.wins}</strong><br />Wins</p>
+            <p className={styles['Card2__Main-text']}><strong className={styles['Main__textHead-big']}>{team.points}</strong><br />Points</p>
+            <p className={styles['Card2__Main-text']}><strong className={styles['Main__textHead-mid']}>{team.losses}</strong><br />Losses</p>
+          </div>
+
+          <div className={styles['Card2__subMain']}>
+            <p className={styles['Card2__subMain-text']}><strong className={styles['subMain__text-mid']}>{team.goalsForPerGame.toFixed(1)}</strong><br />Goals Per Game</p>
+            <p className={styles['Card2__subMain-text']}><strong className={styles['subMain__text-big']}>{team.goalsFor}</strong><br />Goals</p>
+            <p className={styles['Card2__subMain-text']}><strong className={styles['subMain__text-big']}>{team.gamesPlayed}</strong><br />Games Played</p>
+            <p className={styles['Card2__subMain-text']}><strong className={styles['subMain__text-mid']}>{team.shotsForPerGame.toFixed(1)}</strong><br />Shots Per Game</p>
+          </div>
+          
+          <div className={styles['Card2__subsubMain']}>
+            <p className={styles['Card2__subsubMain-text']}><strong className={styles['subsubMain__text-mid']}>{team.winsInRegulation}</strong><br />Wins in Regulation</p>
+            <p className={styles['Card2__subsubMain-text']}><strong className={styles['subsubMain__text-mid']}>{team.winsInShootout}</strong><br />Wins in Shootout</p>
+          </div>
         </div>
     </div>
   );

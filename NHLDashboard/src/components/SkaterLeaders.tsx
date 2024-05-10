@@ -27,15 +27,24 @@ const SkaterLeaders = () => {
         setSelectedCategory(category);
     };
 
+    const formatValue = (value: number) => {
+        if (value % 1 !== 0) {
+            return value.toFixed(3);
+        }
+        return value;
+    };
+
     const renderLeadersTable = (category: CategoryType) => {
         const leaders = skaterLeaders[category];
         return leaders.map((leader) => (
             <div className={stylesSkaterLeaders.playerCard} key={leader.id} >
-                <img className={stylesSkaterLeaders.playerCard__img} src={leader.headshot} alt={`${leader.firstName.default} ${leader.lastName.default}`} />
-                <div className={stylesSkaterLeaders.playerCard__info}>
-                    <p className={stylesSkaterLeaders['playerCard__info--player']}>{`${leader.firstName.default} ${leader.lastName.default}`}</p>
+                <div className={stylesSkaterLeaders.playerCard__intro}>
+                    <img className={stylesSkaterLeaders.playerCard__img} src={leader.headshot} alt={`${leader.firstName.default} ${leader.lastName.default}`} />
                     <p className={stylesSkaterLeaders['playerCard__info--teamAbbrev']}>{`${leader.teamAbbrev}`}</p>
-                    <p className={stylesSkaterLeaders['playerCard__info--value']}>{`${leader.value}`}</p>
+                </div>
+                <div className={stylesSkaterLeaders.playerCard__info}>
+                    <p className={stylesSkaterLeaders['playerCard__info--player']}>{`${leader.firstName.default}`} <strong>{`${leader.lastName.default}`}</strong></p>
+                    <p className={stylesSkaterLeaders['playerCard__info--value']}>{formatValue(leader.value)}</p>
                 </div>
             </div>
         ));

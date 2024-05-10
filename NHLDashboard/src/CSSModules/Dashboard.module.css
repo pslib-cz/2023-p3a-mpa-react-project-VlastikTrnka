@@ -1,0 +1,172 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard__title {
+  margin: 0 2em;
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+  font-size: 2.5em;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.dashboard__logo {
+  position: absolute;
+  font-size: 4em;
+  top: 1%;
+  margin: 0;
+  opacity: .9;
+  font-family: 'NHL Regular';
+}
+
+.dashboard__menu {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+  width: 85vw;
+  justify-content: center;
+}
+  
+.dashboard__menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 2px solid white;
+  border-radius: 0.8em;
+  font-size: 1em;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  padding: 0 1em;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+  
+  .dashboard__menu-item:hover {
+    transform: scale(1.03);
+    color: white;
+  }
+  
+  .dashboard__menu-item i {
+    margin-right: 10px;
+  }
+  
+  .dashboard__menu-item a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+/* Media queries for larger screens */
+@media (min-width: 600px) { /* Small tablets and large phones */
+  .dashboard__menu {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for small tablets */
+  }
+  .dashboard__title {
+    font-size: 3.5em; /* Original size for large screens */
+  }
+
+  .dashboard__logo {
+    position: absolute;
+    font-size: 6.5em;
+    top: 8%;
+    opacity: .9;
+  }
+}
+
+@media (min-width: 900px) { /* Large desktops */
+  .dashboard__menu {
+    grid-template-columns: repeat(8, 1fr);
+    width: 70vw;/* 8 columns for large desktops */
+  }
+  
+  .dashboard__title {
+    margin-top: 2em;
+    font-size: 4em; /* Original size for large screens */
+  }
+
+  .dashboard__logo {
+    position: absolute;
+    font-size: 7em;
+    top: 3%;
+    opacity: .9;
+  }
+
+  .dashboard__menu-item {
+    border: 3px solid white;
+    font-size: 1.2em; /* Original size for tablets */
+  }
+
+  .dashboard__menu-item {
+    height: 220px; /* Original height for tablets */
+    
+  }
+  
+  .dashboard__menu-item:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 6; /* Spanning four columns */
+  }
+  
+  .dashboard__menu-item:nth-child(2) {
+    grid-area: 1 / 6 / 2 / 9; /* Spanning four columns */
+  }
+  
+  .dashboard__menu-item:nth-child(3) {
+    grid-area: 2 / 4 / 3 / 7; /* Spanning two columns */
+  }
+  
+  .dashboard__menu-item:nth-child(4) {
+    grid-area: 2 / 7 / 3 / 9; /* Spanning three columns */
+  }
+  
+  .dashboard__menu-item:nth-child(5) {
+    grid-area: 2 / 1 / 3 / 4; /* Spanning three columns */
+  }
+}
+
+@media (min-width: 1200px) { /* Large desktops */
+  .dashboard__menu {
+    grid-template-columns: repeat(8, 1fr);
+    width: 50vw;/* 8 columns for large desktops */
+  }
+
+  .dashboard__logo {
+    position: absolute;
+    font-size: 7em;
+    top: 1%;
+    opacity: .9;
+  }
+
+  .dashboard__title {
+    font-size: 5em;
+    margin-top: .7em;
+    margin-bottom: .7em;
+  }
+}
+
+@media (min-width: 1800px) {
+  .dashboard__logo {
+    font-size: 8em;
+    top: 0%;
+    opacity: .9;
+  }
+
+  .dashboard__title {
+    font-size: 5em;
+    margin-top: .2em;
+    margin-bottom: .9em;
+  }
+
+}

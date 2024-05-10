@@ -2,12 +2,22 @@
 
 ## Téma
 
-Tady bude krátký a úderný popis o účelu, významu, funkcionalitě...
+### NHL Dashboard
+#### Statistiky týmů
+**Podrobné informace jednotlivých týmů:** Statistiky jednotlivých týmů, body, výhry, prohry, střely atd.
+
+#### Statistiky hráčů
+**Podrobné informace o hráčích:** Statistiky jednotlivých hráčů, body, goly, asistence atd.
+#### Tabulky
+**Aktuální pořadí týmů:** Podrobné informace o tom jak si týmy vedou v momentální sezoně.
+
+#### Rozvrhy zápasů
+**Kdo, kde, s kým hraje:** Informace o následujících zápasech.
 
 ## Odkazy pro vývoj
 
 Zde budou živé linky na:
-- figma návrh stránek aplikace
+- [figma](https://www.figma.com/file/AcLgo8w20LHXVMwFNlaEVz/NHLDashboard?type=design&node-id=0%3A1&mode=design&t=hUVxykiLHyUH9nps-1) 
 - odkaz na gh-pages projektu
 - odkaz do repozitáře projektu, pokud pracuji v teamu a zde vývoj neprobíhá
 

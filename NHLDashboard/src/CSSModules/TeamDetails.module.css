@@ -1,0 +1,263 @@
+.teamDetailsWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4em;
+}
+
+.teamDetails__Card-title {
+    font-size: 1em;
+    margin-top: 1.5em;
+}
+
+.teamDetails__Card-text {
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+}
+
+.teamDetails__Card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 0.8em;
+    padding: 2em 3em;
+    margin: 0 1em;
+}
+
+.teamDetails__Card2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    border-radius: 0.8em;
+    padding: 2em 2em;
+    gap: 0 3em;
+    margin: 0 1em;
+    align-items: center;
+}
+
+.Card2__Main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: flex-end;
+    margin: 0;
+    padding: 0;
+    gap: 1.5em;
+    justify-content: center;
+}
+
+.Card2__subMain {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
+    margin: 0;
+    margin-top: 1.5em;
+    padding: 0;
+    gap: 0em 1em;
+    justify-content: center;
+}
+
+.Card2__subsubMain {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+    margin-top: 1em;
+    gap: 0em;
+    justify-content: center;
+}
+
+.Card2__Main-text {
+    font-size: .8em;
+    text-align: center;
+}
+
+.Card2__subMain-text {
+    font-size: .7em;
+    text-align: center;
+}
+
+.Card2__subsubMain-text {
+    font-size: .7em;
+    text-align: center;
+}
+
+.Main__textHead-big {
+    font-size: 3em;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.Main__textHead-mid {
+    font-size: 1.8em;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.subMain__text-big {
+    font-size: 2em;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.subMain__text-mid {
+    font-size: 1.3em;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.subsubMain__text-mid {
+    font-size: 1.5em;
+    font-weight: 800;
+    line-height: 1;
+}
+
+@media (min-width: 660px) {
+    .teamDetailsWrapper {
+        flex-direction: row;
+        gap: 0;
+    }
+
+    .teamDetails__Card2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        height: 60vh;
+        width: 35vw;
+        padding: 2em 1em;
+    }
+
+    .teamDetails__Card {
+        margin-left: 1em;
+        height: 60vh;
+        border: 2px solid white;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .Card2__subMain {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 0em;
+    }
+
+    .Card2__subsubMain {
+        margin-top: 0;
+    }
+
+    .Card2__Main-text {
+        font-size: 1.1em;
+        text-align: left;
+    }
+
+    .Card2__subMain-text {
+        font-size: .7em;
+        text-align: center;
+    }
+
+    .Card2__subsubMain-text {
+        font-size: 1em;
+        text-align: center;
+    }
+
+    .Card2__Main-text strong {
+        position: relative;
+        bottom: -3px;
+    }
+
+    .Main__textHead-big {
+        font-size: 3em;
+    }
+
+    .Main__textHead-mid {
+        font-size: 1.8em;
+    }
+
+    .subMain__text-big {
+        font-size: 2em;
+    }
+
+    .subMain__text-mid {
+        font-size: 1.3em;
+    }
+
+    .subsubMain__text-mid {
+        font-size: 1.5em;
+    }
+
+    br {
+        line-height: 0;
+    }
+}
+
+@media (min-width: 900px) {
+    .Card2__Main-text {
+        font-size: 1.2em;
+        text-align: left;
+    }
+
+    .Card2__subMain-text {
+        font-size: .9em;
+        text-align: center;
+    }
+
+    .Card2__subsubMain-text {
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    .Main__textHead-big {
+        font-size: 3.6em;
+    }
+
+    .Main__textHead-mid {
+        font-size: 2.1em;
+    }
+
+    .subMain__text-big {
+        font-size: 2.2em;
+    }
+
+    .subMain__text-mid {
+        font-size: 1.6em;
+    }
+
+    .subsubMain__text-mid {
+        font-size: 1.6em;
+    }
+
+    .teamDetails__Card2 {
+        padding: 2em 3.5em;
+    }
+
+    .teamDetails__Card-title {
+        font-size: 1.3em;
+    }
+    
+}
+
+@media (min-width: 1100px) {
+    .teamDetails__Card {
+        width: 20vw;
+    }
+
+    .Card2__subMain {
+        gap: 1.6em;
+        margin-bottom: 1.5em;
+    }
+
+    .teamDetails__Card2 {
+        width: 25vw;
+        padding: 2em 4em;
+    }
+
+
+    .teamDetails__Card-title {
+        font-size: 1.5em;
+    }
+}

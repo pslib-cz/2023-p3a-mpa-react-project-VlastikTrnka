@@ -1,0 +1,152 @@
+.gameInfoWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameInfoWrapper__title {
+    font-size: 1.5em;
+    margin-top: 4.5em;
+    margin-bottom: 1em;
+}
+
+.wrapper__card-title {
+    font-size: 1.2em;
+    padding: 0.5em 0;
+}
+
+.wrapper__box {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    border-radius: 0.8em;
+    padding: 2em 2em;
+    margin: 1em 1em;
+    width: 70vw;
+}
+
+.wrapper__cardText {
+    text-align: left;
+    font-size: 1em;
+    padding-left: .4em;
+}
+
+.wrapper__teamCard {
+    padding-top: 1em;
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper__teamCard-title {
+    font-size: 1em;
+    padding: .8em 0;
+}
+
+.teamCard__logo {
+    width: 100px;
+    height: auto;
+}
+
+.wrapper__card-text {
+    padding: 0.5em 0;
+    margin: 0.5em 0;
+    font-size: .8em;
+}
+
+@media (min-width: 440px) {
+    .gameInfoWrapper__title {
+        font-size: 2em;
+    }
+    
+    .wrapper__card-title {
+        font-size: 1.5em;
+    }
+
+    .wrapper__teamCard-title {
+        font-size: 1.2em;
+    }
+
+    .wrapper__cardText {
+        text-align: left;
+        font-size: 1.2em;
+        padding-left: .4em;
+    }
+
+    .wrapper__box {
+        width: 50vw;
+    }
+}
+
+
+@media (min-width: 900px) {
+    .gameInfoWrapper__title {
+        font-size: 2.7em;
+    }
+    
+    .wrapper__card-title {
+        font-size: 1.3em;
+    }
+
+    .wrapper__teamCard-title {
+        font-size: 1.3em;
+    }
+
+    .wrapper__cardText {
+        text-align: left;
+        font-size: 1.3em;
+        width: 35vw;
+        margin: 2em 1.5em;
+    }
+
+    .wrapper__card-text {
+        font-size: 1em;
+    }
+
+    .wrapper__box {
+        width: 50vw;
+    }
+}
+
+@media (min-width: 1100px) {
+
+    .gameInfoWrapper__title {
+        font-size: 3.5em;
+    }
+    
+    .wrapper__card-title {
+        font-size: 1.7em;
+        padding: 0;
+        margin-bottom: 1em;
+    }
+    .wrapper__card {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+    }
+    .wrapper__teamCard {
+        gap: 1em;
+        margin-bottom: 3em;
+    }
+    .teamCard__logo {
+        width: 150px;
+    }
+
+    .wrapper__teamCard-title {
+        font-size: 1.1em;
+    }
+
+    .wrapper__card-text {
+        font-size: .8em;
+    }
+}
+
+@media (min-width: 1400px) {
+    .wrapper__box {
+        width: 40vw;
+    }
+    .wrapper__teamCard-title {
+        font-size: 1.2em;
+    }
+}

@@ -1,0 +1,116 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .dashboard__title {
+    margin: 0 2em;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+    font-size: 2.5em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  }
+  
+  .dashboard__menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    width: 85vw;
+    justify-content: center;
+  }
+    
+  .dashboard__menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 2px solid white;
+    border-radius: 0.8em;
+    font-size: 1em;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    padding: 0 1em;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
+    
+    .dashboard__menu-item:hover {
+      transform: scale(1.03);
+      color: white;
+    }
+    
+    .dashboard__menu-item i {
+      margin-right: 10px;
+    }
+    
+    .dashboard__menu-item a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+  
+  @media (min-width: 600px) {
+    .dashboard__menu {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .dashboard__title {
+      font-size: 3.5em;
+    }
+
+    .dashboard__menu-item {
+        height: 140px;
+      }
+  }
+  
+  @media (min-width: 900px) {
+    .dashboard__menu {
+      width: 70vw;
+    }
+    
+    .dashboard__title {
+      margin-top: 2em;
+      font-size: 4em;
+    }
+  
+    .dashboard__menu-item {
+      border: 3px solid white;
+      font-size: 1.2em;
+    }
+  
+    .dashboard__menu-item {
+      height: 220px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .dashboard__menu {
+      width: 50vw;
+    }
+  
+    .dashboard__title {
+      font-size: 5em;
+      margin-top: .7em;
+      margin-bottom: .7em;
+    }
+  }
+  
+  @media (min-width: 1800px) {
+  
+    .dashboard__title {
+      font-size: 5em;
+      margin-top: .2em;
+      margin-bottom: .9em;
+    }
+  
+  }

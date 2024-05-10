@@ -1,0 +1,188 @@
+
+
+.playerDetailsWrapper__playerName {
+    margin-top: 6em;
+    font-weight: 300;
+    font-size: 1.5em;
+    margin-bottom: 2em;
+
+}
+
+.playerDetailsWrapper__introduceCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: .8em;
+    overflow: hidden;
+    padding: 0;
+    margin: 0 auto;
+    width: 70vw;
+}
+
+.playerDetailsWrapper__inroduceCard-num {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: .8em;
+}
+
+.playerDetailsWrapper__inroduceCard-logo {
+    width: 100%;
+    height: auto;
+}
+
+.playerDetailsWrapper__infoCard {
+    padding: 0;
+    margin: 2.5em 0;
+    margin-bottom: .5em;
+    width: 70vw;
+    border-left: 1px solid white;
+    padding-left: 1em;
+}
+
+.playerDetailsWrapper__infoCard-stat {
+    text-align: left;
+    font-size: .9em;
+}
+
+.playerDetailsWrapper__statsCard {
+    padding: 0;
+    margin: 0;
+    width: 70vw;
+}
+
+.playerDetailsWrapper__statsCardBtn {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+
+
+.playerDetailsWrapper__statsCardValues {
+    margin: 1em 0;
+    padding: 0;
+    text-align: left;
+    border-left: 1px solid white;
+    padding-left: 1em;
+}
+
+.playerDetailsWrapper__statsCardValues-stat {
+    font-size: .9em;
+}
+
+
+@media (min-width: 540px) {
+    .playerDetailsWrapper__introduceCard {
+        width: 50vw;
+    }
+
+    .playerDetailsWrapper__inroduceCard-num {
+        font-size: 2em;
+    }
+}
+  
+@media (min-width: 640px) {
+
+    .playerDetailsWrapper__introduceCard {
+        width: 30vw;
+    }
+    .playerDetailsWrapper__inroduceCard-num {
+        font-size: 1.7em;
+    }
+
+    .playerDetailsWrapper__box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .playerDetailsWrapper__infoCard {
+        margin-top: 1.7em;
+        width: 35vw;
+        border-left: none;
+        margin-right: 6em;
+    }
+    .playerDetailsWrapper__infoCard-stat {
+        border-right: 1px solid white;
+
+    }
+
+    .playerDetailsWrapper__statsCard {
+        margin: 2.5em 0;
+        width: 40vw;
+    }
+
+    .playerDetailsWrapper__statsCardBtn {
+        margin: 0 auto;
+        margin-bottom: 1.9em;
+
+    }
+}
+
+@media (min-width: 900px) {
+    .playerDetailsWrapper__inroduceCard-num {
+        font-size: 2.6em;
+        margin-bottom: 0;
+        margin-top: .4em;
+    }
+
+    .playerDetailsWrapper__infoCard {
+        margin-top: 4em;
+        width: 30vw;
+        margin-right: 10em;
+    }
+
+    .playerDetailsWrapper__infoCard-stat {
+        font-size: 1em;
+    }
+
+    .playerDetailsWrapper__statsCardBtn button {
+        padding: .9em 1.7em;
+        font-size: .9em;
+    }
+
+    .playerDetailsWrapper__statsCardValues-stat {
+        font-size: 1em;
+    }
+
+    .playerDetailsWrapper__playerName {
+        font-size: 2em;
+        margin-top: 4em;
+    }
+}
+
+@media (min-width: 1100px) {
+    .playerDetailsWrapper__inroduceCard-num {
+        font-size: 3em;
+        margin-bottom: 0;
+        margin-top: .6em;
+    }
+
+    .playerDetailsWrapper__infoCard {
+        margin-top: 5em;
+        width: 25vw;
+        margin-right: 12em;
+    }
+
+    .playerDetailsWrapper__introduceCard {
+        width: 25vw;
+        margin: 0 5em;
+    }
+
+    .playerDetailsWrapper__playerName {
+        font-size: 2.5em;
+        margin-top: 4em;
+    }
+}
+
+@media (min-width: 1450px) {
+    .playerDetailsWrapper__box {
+        width: 77vw;
+    }
+
+    .playerDetailsWrapper__introduceCard {
+        width: 18vw;
+        margin: 0 5em;
+    }
+}

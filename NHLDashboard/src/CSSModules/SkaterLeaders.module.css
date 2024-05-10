@@ -1,0 +1,238 @@
+
+.SkaterLeadersWrapper {
+    margin-bottom: 4em;
+}
+
+.playerCard__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+.playerCard__box h1 {
+    margin-top: 8em;
+}
+
+.playerCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    width: 80vw;
+    border: 2px solid white;
+    border-radius: .8em;
+    margin: 0em auto;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.playerCard__intro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .8em;
+}
+
+.playerCard__img {
+    width: 90px;
+    height: auto;
+    border-right: 2px solid grey;
+}
+
+.playerCard__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+    margin-right: .5em;
+}
+
+.playerCard__info p {
+    text-align: right;
+    margin: 0;
+}
+
+.playerCard__info--player {
+    font-size: .8em;
+    font-weight: 300;
+
+}
+
+.playerCard__info--value {
+    padding-top: .7em;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.playerCard__info--teamAbbrev {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+
+@media (min-width: 450px) {
+    .playerCard {
+        width: 75vw;
+    }
+
+    .playerCard__info--player {
+        font-size: .9em;
+    }
+    
+    .playerCard__info--value {
+        padding-top: .6em;
+        font-size: 1.2em;
+    }
+    
+    .playerCard__info--teamAbbrev {
+        font-size: 1.2em;
+    }
+
+    .playerCard__info {
+        margin-right: 1em;
+    }
+}
+
+@media (min-width: 550px) {
+    .playerCard {
+        width: 65vw;
+    }
+}
+  
+@media (min-width: 700px) {
+    .playerCard__box {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+    }
+
+    .playerCard {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        overflow: hidden;
+        gap: 0;
+        width: 60vw;
+    }
+
+    .playerCard__img {
+        width: 130px;
+        height: auto;
+        border-right: 2px solid grey;
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+
+    .playerCard__intro {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+
+    .playerCard__info--teamAbbrev {
+        font-size: 1.5em;
+        font-weight: 600;
+    }
+
+    .playerCard__info p {
+        text-align: right;
+        margin: 0;
+    }
+
+    .playerCard__info--player {
+        font-size: 1.2em;
+        font-weight: 300;
+    
+    }
+
+    .playerCard__info--value {
+        padding-top: .6em;
+        font-size: 1.6em;
+    }
+}
+
+  
+@media (min-width: 900px) {
+    .playerCard__box {
+        gap: 1em;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .playerCard {
+        width: 60vw;
+    }
+
+    .playerCard__info {
+        margin-right: 1.8em;
+    }
+
+    .playerCard__img {
+        width: 190px;
+        height: auto;
+    }
+
+    .playerCard__info--teamAbbrev {
+        font-size: 1.8em;
+    }
+
+
+    .playerCard__info--player {
+        font-size: 1.4em; 
+    }
+
+    .playerCard__info--value {
+        padding-top: 1em;
+        font-size: 2em;
+    }
+}
+
+  
+@media (min-width: 1200px) {
+    .playerCard__box {
+        gap: 1.2em;
+        margin: 0 auto;
+    }
+    
+    .playerCard {
+        width: 55vw;
+    }
+
+    .playerCard__img {
+        width: 210px;
+        height: auto;
+    }
+
+    .playerCard__info--player {
+        font-size: 1.6em; 
+    }
+
+    .playerCard__info--value {
+        padding-top: .8em;
+        font-size: 2.7em;
+    }
+}
+
+@media (min-width: 1400px) {
+    .playerCard__box {
+        gap: 1.2em;
+        margin: 0 auto;
+    }
+
+    .playerCard {
+        width: 40vw;
+    }
+
+    .playerCard__img {
+        width: 230px;
+        height: auto;
+    }
+}
